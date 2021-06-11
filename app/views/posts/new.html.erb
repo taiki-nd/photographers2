@@ -3,6 +3,7 @@
         <h3>投稿する</h3>
         <%= form_with(model: @post, local: true) do |form| %>
             <%= form.text_field :image, placeholder: "image URL" %>
+            <%= form.text_field :image_cat, placeholder: "image category" %>
             <%= form.text_field :name, placeholder: "Nickname" %>
             <%= form.text_field :camera, placeholder: "Camera" %>
             <%= form.text_field :lens, placeholder: "Lens" %>

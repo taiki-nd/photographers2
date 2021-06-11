@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2021_06_11_050941) do
     t.string "camera"
     t.string "lens"
     t.string "place"
+    t.string "image_cat"
     t.text "text"
     t.text "image"
     t.datetime "created_at", precision: 6, null: false

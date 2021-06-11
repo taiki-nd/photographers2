@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.string :camera
       t.string :lens
       t.string :place
+      t.string :image_cat
       t.text :text
       t.text :image
       t.timestamps
