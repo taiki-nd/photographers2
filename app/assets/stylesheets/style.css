@@ -8,6 +8,11 @@ img{
     width: 95%;
     margin: 0 auto;
 }
+.content{
+    padding-top: 30px;
+    width: 90%;
+    margin: 0 auto;
+}
 
 /*-----------------------------------------
 ------------header
@@ -255,3 +260,22 @@ form input[type="submit"]:hover {
     border-radius: 5px;
     padding: 20px
 }
+
+/*-----------------------------------------
+------------posts/show(id)
+-----------------------------------------*/
+
+.show{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.left{
+    width: 65%;
+}
+
+.right{
+    width: 25%;
+}
+

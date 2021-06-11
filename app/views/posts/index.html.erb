@@ -12,6 +12,7 @@
                 <p class="post_p"><%= post.name %></p>
                 <p class="post_p"><%= post.camera %></p>
                 <p class="post_p"><%= post.lens %></p>
+                <%= link_to '詳細', post_path(post.id), method: :get %>
                 <%= link_to '削除', post_path(post.id), method: :delete %>
                 <%= link_to '編集', edit_post_path(post.id), method: :get %>
             </div>
