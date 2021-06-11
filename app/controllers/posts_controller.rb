@@ -17,6 +17,8 @@ class PostsController < ApplicationController
         post.destroy 
     end
     
+    def
+    
     private
     def post_params
         params.require(:post).permit(:name, :camera, :lens, :place, :image, :text) 
