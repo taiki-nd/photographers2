@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
     
+    before_action :move_to_index, except: [:index, :show]
+    
     def index
         @posts = Post.all
     end
@@ -33,6 +35,12 @@ class PostsController < ApplicationController
     private
     def post_params
         params.require(:post).permit(:name, :camera, :lens, :place, :image, :text) 
+    end
+    
+    def move_to_index
+        unless user_sind_in?
+            redirect_to action: :index
+        end 
     end
     
 end
