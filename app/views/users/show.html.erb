@@ -1,0 +1,21 @@
+<div class="content">
+    <div class="container">
+        <h3><%= @nickname %>さんの投稿</h3>
+        <div class="grid">
+            <% @posts.each do |post| %>
+                <div class="post">
+                    <img class="posted_img" src="<%= post.image %>">
+                    <p class="post_p">カメラ：　<%= post.camera_maker %> / <%= post.camera %></p>
+                    <p class="post_p">レンズ：　<%= post.lens_maker %> / <%= post.lens %></p>
+                    <% if user_signed_in? %>
+                        <%= link_to '詳細', post_path(post.id), method: :get %>
+                        <%= link_to '削除', post_path(post.id), method: :delete %>
+                        <%= link_to '編集', edit_post_path(post.id), method: :get %>
+                    <% else %>
+                        <%= link_to '詳細', post_path(post.id), method: :get %>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

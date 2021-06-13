@@ -27,6 +27,7 @@ img{
     top: 0;
     left: 0;
     z-index: 10;
+    display: flex;
 }
 
 .heading{
@@ -44,6 +45,15 @@ img{
 #heading_id a{
     text-decoration: none;
     color: #212121;
+}
+
+.current_user{
+    margin-left: 200px;
+}
+
+.user_name{
+    color: #212121;
+    text-decoration: none;
 }
 
 #nav_bar a{
