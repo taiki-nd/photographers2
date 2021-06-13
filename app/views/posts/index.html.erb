@@ -9,7 +9,7 @@
         <% @posts.each do |post| %>
             <div class="post">
                 <img class="posted_img" src="<%= post.image %>">
-                <p class="post_p">投稿者：　<%= post.name %></p>
+                <p class="post_p">投稿者：　<%= post.user.nickname %></p>
                 <p class="post_p">カメラ：　<%= post.camera_maker %> / <%= post.camera %></p>
                 <p class="post_p">レンズ：　<%= post.lens_maker %> / <%= post.lens %></p>
                 <p class="post_p">カテゴリー：　<%= post.image_cat %></p>
