@@ -294,6 +294,13 @@ form input[type="submit"]:hover {
     width: 25%;
 }
 
+.comment{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #212121;
+}
+
 /*-----------------------------------------
 ------------users/sign_up & sign_in
 -----------------------------------------*/
