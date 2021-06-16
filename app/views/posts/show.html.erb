@@ -10,10 +10,29 @@
             <p class="post_p">カテゴリー：　<%= @post.image_cat %></p>
             <p class="post_p">撮影場所：　<%= @post.place %></p>
             <p class="post_p">コメント：　</br><%= @post.text %></p>
-            <% if user_signed_in? && current_user.id == post.user_id %>
+            <% if user_signed_in? && current_user.id == @post.user_id %>
                 <%= link_to '削除', post_path(@post.id), method: :delete %>
                 <%= link_to '編集', edit_post_path(@post.id), method: :get %>
             <% end %>
+            <div class="container">
+                <% if user_signed_in? %>
+                    <%= form_with(model: [@post, @comment], local: true) do |form| %>
+                        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+                        <%= form.submit "SEND" %>
+                    <% end %>
+                <% else %>
+                <strong><p>コメントの投稿には新規登録/ログインが必要です</p></strong>
+                <% end %>
+                <h4>＜コメント一覧＞</h4>
+                <% if @comments %>
+                    <% @comments.each do |comment| %>
+                        <P>
+                            <strong><%= link_to comment.uer.nickname, "/users/#{comment.user_id}" %>:</strong>
+                            <%= comment.text %>
+                        </P>
+                    <% end %>
+                <% end %>
+            </div>
         </div>
     </div>
 </div>
