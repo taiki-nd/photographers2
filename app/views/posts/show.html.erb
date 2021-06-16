@@ -36,6 +36,7 @@
                         <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>
                         <%= comment.text %>
                     </P>
+                    <%= link_to '削除', post_comment_path(@comment.id), method:
                 <% end %>
             <% end %>
         </div>
