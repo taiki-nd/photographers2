@@ -1,0 +1,33 @@
+<section class="section" id="section1">
+    <div class="search">
+        <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
+            <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+            <%= form.submit "検索", class: "search-btn" %>
+        <% end %>
+    </div>
+   
+</section>
+
+<section class="section" id="section2">
+    <h2 class="sub_title">検索結果</h2>
+    <div class="grid">
+        <% @posts.each do |post| %>
+            <div class="post">
+                <img class="posted_img" src="<%= post.image %>">
+                <p class="post_p">投稿者：　<%= post.user.nickname %></p>
+                <p class="post_p">カメラ：　<%= post.camera_maker %> / <%= post.camera %></p>
+                <p class="post_p">レンズ：　<%= post.lens_maker %> / <%= post.lens %></p>
+                <p class="post_p">カテゴリー：　<%= post.image_cat %></p>
+                <%= link_to '詳細', post_path(post.id), method: :get %>
+                <% if user_signed_in? && current_user.id == post.user_id%>
+                    <%= link_to '削除', post_path(post.id), method: :delete %>
+                    <%= link_to '編集', edit_post_path(post.id), method: :get %>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+    <div class="pagination">
+        <%= paginate @posts %>
+    </div>
+        
+</section>
