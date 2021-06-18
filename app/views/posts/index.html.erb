@@ -1,6 +1,10 @@
 <section class="section" id="section1">
     <div class="search_area">
         <h2 class="sub_title">カメラとレンズを作例とレビューから選ぶ</h2>
+        <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
+            <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+            <%= form.submit "検索", class: "search-btn" %>
+        <% end %>
     </div>
    
 </section>

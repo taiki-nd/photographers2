@@ -35,6 +35,10 @@ class PostsController < ApplicationController
         @comments = @post.comments.includes(:user)
     end
     
+    def search
+        @posts = Post.search(params[:keyword]) 
+    end
+    
     private
     def post_params
         params.require(:post).permit(:camera, :lens, :place, :image, :text, :camera_maker, :lens_maker).merge(user_id: current_user.id) 
