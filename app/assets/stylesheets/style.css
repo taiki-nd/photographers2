@@ -13,6 +13,9 @@ img{
     width: 90%;
     margin: 0 auto;
 }
+.sub_title{
+    margin-left: 20px;
+}
 
 /*-----------------------------------------
 ------------header
@@ -178,13 +181,42 @@ img{
     padding-top: 30px
 }
 
+#section1 h2{
+    color: #fff;
+}
+
 .search_area{
     background-image: url(/assets/top_img.png);
     width: 100%;
     height: 500px;
     background-size: cover;
-
 }
+
+.search_field{
+    display: flex;
+}
+
+.search_left{
+    width: 60%;
+}
+
+.search_left p{
+    color: #fff;
+    padding: 30px;
+    font-size: 1.5rem;
+}
+
+.search_right{
+    width: 40%;
+}
+
+.search-form{
+    width: 55%;
+    height: 500px;
+    margin:  auto;
+    padding-top: 140px;
+}
+
 /*-----------------------------------------
 ------------section2
 -----------------------------------------*/
