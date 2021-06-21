@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_21_133011) do
+ActiveRecord::Schema.define(version: 2021_06_21_135407) do
 
   create_table "cameras", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "camera_maker"
@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2021_06_21_133011) do
     t.string "sensor_size"
     t.integer "pixels"
     t.string "iso"
-    t.integer "shooting_speed"
     t.integer "weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "shooting_speed"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
