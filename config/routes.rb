@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:show, :edit, :update]
+  
+  resources :cameras, only: :index
 end
