@@ -22,7 +22,7 @@ class CamerasController < ApplicationController
     end
     
     def update
-        camera = Camera.find([:id])
+        camera = Camera.find(params[:id])
         camera.update(camera_paramas)
     end
     
