@@ -4,4 +4,8 @@ class CamerasController < ApplicationController
         @cameras = Camera.all
     end
     
+    def new
+        @post = Camera.new
+    end
+    
 end
