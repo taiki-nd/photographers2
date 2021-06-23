@@ -1,0 +1,8 @@
+<div class="grid">
+        <% @cameras.each do |camera| %>
+            <div class="post">
+                <p class="post_p">カメラ：　<%= camera.camera_maker %> / <%= camera.camera_name %> </p>
+                <p class="post_p">センサー：　<%= camera.sensor_size %> / %= camera.pixels %>万画素 </p>
+            </div>
+        <% end %>
+    </div>
