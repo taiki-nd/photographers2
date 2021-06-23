@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show, :edit, :update]
   
-  resources :cameras, only: [:index, :new, :create, :destroy, :edit]
+  resources :cameras, only: [:index, :new, :create, :destroy, :edit, :update]
 end
