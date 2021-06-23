@@ -1,8 +1,21 @@
-<div class="grid">
-        <% @cameras.each do |camera| %>
-            <div class="post">
-                <p class="post_p">カメラ：　<%= camera.camera_maker %> / <%= camera.camera_name %> </p>
-                <p class="post_p">センサー：　<%= camera.sensor_size %> / %= camera.pixels %>万画素 </p>
-            </div>
-        <% end %>
+<div class="content">
+    <div class="container">
+        <div class="grid">
+            <% @cameras.each do |camera| %>
+                <div class="camera_post">
+                    <div class="camera_rightside">
+                        <img class="posted_img" src="<%= camera.image %>">
+                    </div>
+                    <div class="camera_center">
+                        <p class="post_p">カメラ：<%= camera.camera_maker %> / <%= camera.camera_name %> </p>
+                        <p class="post_p">センサー：<%= camera.sensor_size %> / <%= camera.pixels %>万画素 </p>
+                        <p class="post_p">iso：<%= camera.iso %></p>
+                        <p class="post_p">重量：<%= camera.weight %>g</p>
+                    </div>   
+                </div>
+            <% end %>
+        </div>
     </div>
+</div>
+
+

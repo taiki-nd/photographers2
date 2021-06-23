@@ -347,3 +347,19 @@ form input[type="submit"]:hover {
     background-color: #fff;
     box-sizing: border-box;
 }
+
+/*-----------------------------------------
+------------index/cameras
+-----------------------------------------*/
+
+.camera_post img{
+    vertical-align: top;
+    width: 200px;
+}
+
+.camera_post{
+    transition: all 0.5s ease;
+    box-shadow: 0 0 8px 4px #444444;
+    display: flex;
+}
+
