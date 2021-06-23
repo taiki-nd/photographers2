@@ -13,7 +13,8 @@ class CamerasController < ApplicationController
     end
     
     def destroy
-        
+        camera = Camera.find(params[:id])
+        camera.destroy
     end
     
     private
