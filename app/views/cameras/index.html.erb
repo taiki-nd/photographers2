@@ -1,5 +1,5 @@
-<h2 class="sub_title">カメラ一覧</h2>
 <div class="content">
+    <h2 class="sub_title">カメラ一覧</h2>
     <div class="container">
         <div class="grid">
             <% @cameras.each do |camera| %>
@@ -12,6 +12,7 @@
                         <p class="post_p">センサー：<%= camera.sensor_size %> / <%= camera.pixels %>万画素 </p>
                         <p class="post_p">iso：<%= camera.iso %></p>
                         <p class="post_p">重量：<%= camera.weight %>g</p>
+                        <%= link_to '削除', camera_path(camera.id), method: :delete %>
                     </div>   
                 </div>
             <% end %>

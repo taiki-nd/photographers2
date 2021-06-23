@@ -12,6 +12,10 @@ class CamerasController < ApplicationController
         Camera.create(camera_paramas)
     end
     
+    def destroy
+        
+    end
+    
     private
     def camera_paramas
         params.require(:camera).permit(:image, :camera_maker, :camera_name, :sensor_size, :pixels, :iso, :weight, :shooting_speed)
