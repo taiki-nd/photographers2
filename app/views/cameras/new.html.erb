@@ -1,0 +1,16 @@
+<div class="content">
+    <div class="container">
+        <h3>追加する</h3>
+        <%= form_with(model: @camera, local: true) do |form| %>
+            <%= form.text_field :image, placeholder: "image URL" %>
+            <%= form.text_field :camera_maker, placeholder: "メーカー" %>
+            <%= form.text_field :camera_name, placeholder: "カメラ" %>
+            <%= form.text_field :sensor_size, placeholder: "センサーサイズ" %>
+            <%= form.text_field :pixels, placeholder: "画素数" %>
+            <%= form.text_field :iso, placeholder: "iso感度 100(50)-51200(204800)" %>
+            <%= form.text_field :weight, placeholder: "重量" %>
+            <%= form.text_field :shooting_speed, placeholder: "シャッター速度 100(50)-51200(204800)" %>
+            <%= form.submit "SEND" %>
+        <% end %>
+    </div>
+</div>
