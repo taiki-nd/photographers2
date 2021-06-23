@@ -18,7 +18,7 @@ class CamerasController < ApplicationController
     end
     
     def edit
-        @camera = Camera.find([:id])
+        @camera = Camera.find(params[:id])
     end
     
     private
