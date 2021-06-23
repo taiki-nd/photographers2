@@ -1,0 +1,19 @@
+<div class="content">
+    <h2 class="sub_title"><%= @camera.camera_maker %> / <%= @camera.camera_name %>のレビュー</h2>
+    <div class="container">
+        <h3>基本情報</h3>
+        <div class="show_cam">
+            <div class="camera_rightside">
+                <img class="posted_img" src="<%= @camera.image %>">
+            </div>
+            <div class="camera_center">
+                <p class="post_p">カメラ：<%= @camera.camera_maker %> / <%= @camera.camera_name %> </p>
+                <p class="post_p">センサー：<%= @camera.sensor_size %> / <%= @camera.pixels %>万画素 </p>
+                <p class="post_p">iso：<%= @camera.iso %></p>
+                <p class="post_p">重量：<%= @camera.weight %>g</p>
+                <%= link_to '削除', camera_path(@camera.id), method: :delete %>
+                <%= link_to '編集', edit_camera_path(@camera.id), method: :get %>
+            </div>   
+        </div>
+    </div>
+</div>

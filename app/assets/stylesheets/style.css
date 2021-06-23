@@ -370,3 +370,15 @@ form input[type="submit"]:hover {
     display: flex;
 }
 
+/*-----------------------------------------
+------------camearss/show(id)
+-----------------------------------------*/
+
+.show_cam img{
+    width: 300px;
+}
+
+.show_cam{
+    display: flex;
+    justify-content: space-around;
+}

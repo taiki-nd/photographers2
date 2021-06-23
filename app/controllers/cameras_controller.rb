@@ -26,6 +26,10 @@ class CamerasController < ApplicationController
         camera.update(camera_paramas)
     end
     
+    def show
+        @camera = Camera.find(params[:id])
+    end
+    
     private
     def camera_paramas
         params.require(:camera).permit(:image, :camera_maker, :camera_name, :sensor_size, :pixels, :iso, :weight, :shooting_speed)
