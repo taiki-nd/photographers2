@@ -1,0 +1,23 @@
+<div class="content">
+    <h2 class="sub_title">レンズ一覧</h2>
+    <div class="container">
+        <div class="grid_cam">
+            <% @lenzs.each do |lenz| %>
+                <div class="camera_post">
+                    <div class="camera_rightside">
+                        <img class="posted_img" src="<%= lenz.image %>">
+                    </div>
+                    <div class="camera_center">
+                        <p class="post_p">レンズ：<%= lenz.lens_maker %> / <%= lenz.lens_name %> </p>
+                        <p class="post_p">センサー：<%= lenz.sensor_size %></p>
+                        <p class="post_p">f値：<%= lenz.f_number %></p>
+                        <p class="post_p">重量：<%= lenz.weight %>g</p>
+                        <%= link_to '削除', lenz_path(lenz.id), method: :delete %>
+                        <%= link_to '編集', edit_lenz_path(lenz.id), method: :get %>
+                        <%= link_to 'レンズレビュー', lenz_path(lenz.id), method: :get %>
+                    </div>   
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
