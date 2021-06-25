@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_25_062721) do
+ActiveRecord::Schema.define(version: 2021_06_25_074422) do
 
   create_table "cameras", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "camera_maker"
@@ -36,12 +36,13 @@ ActiveRecord::Schema.define(version: 2021_06_25_062721) do
   create_table "lenzs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "lens_maker"
     t.string "lens_name"
-    t.string "mount"
     t.string "f_number"
     t.string "focal_length"
     t.string "weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "image"
+    t.string "sensor_size"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
