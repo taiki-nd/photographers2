@@ -16,6 +16,11 @@ class LenzsController < ApplicationController
         @lenz = Lenz.find(params[:id])
     end
     
+    def update
+        lenz = Lenz.find(params[:id])
+        lenz.update(lenz_params)
+    end
+    
     private
     def camera_paramas
         params.require(:lenz).permit(:image, :lens_maker, :lens_name, :sensor_size, :f_number, :focal_length, :weight)
