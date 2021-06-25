@@ -14,7 +14,7 @@ class LenzsController < ApplicationController
     
     def destroy
         lenz = Lenz.find(params[:id])
-        lenz.update(lenz_params)
+        lenz.destroy
     end
     
     def edit
@@ -26,8 +26,12 @@ class LenzsController < ApplicationController
         lenz.update(lenz_params)
     end
     
+    def show
+        @lenz = Lenz.find(params[:id])
+    end
+    
     private
-    def camera_paramas
+    def lenz_params
         params.require(:lenz).permit(:image, :lens_maker, :lens_name, :sensor_size, :f_number, :focal_length, :weight)
     end
     
