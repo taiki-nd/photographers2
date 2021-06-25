@@ -12,6 +12,11 @@ class LenzsController < ApplicationController
         Lenz.create(lenz_params)
     end
     
+    def destroy
+        lenz = Lenz.find(params[:id])
+        lenz.update(lenz_params)
+    end
+    
     def edit
         @lenz = Lenz.find(params[:id])
     end
