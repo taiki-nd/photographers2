@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_25_074422) do
+ActiveRecord::Schema.define(version: 2021_06_25_141738) do
 
   create_table "cameras", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "camera_maker"
@@ -57,6 +57,18 @@ ActiveRecord::Schema.define(version: 2021_06_25_074422) do
     t.string "camera_maker"
     t.string "lens_maker"
     t.integer "user_id"
+  end
+
+  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "total_rate"
+    t.integer "comfort_rate"
+    t.integer "imgquality_rate"
+    t.integer "cost_rate"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "camera_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
