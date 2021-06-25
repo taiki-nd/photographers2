@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   
   resources :cameras
   
-  resources :lenzs, only: :index
+  resources :lenzs, only: [:index, :new]
 end

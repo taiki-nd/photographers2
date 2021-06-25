@@ -4,5 +4,7 @@ class LenzsController < ApplicationController
         @lenzs = Lenz.all
     end
     
-    
+    def new
+        @lenz = Lenz.new
+    end
 end
