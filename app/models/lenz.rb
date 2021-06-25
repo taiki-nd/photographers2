@@ -1,0 +1,2 @@
+class Lenz < ApplicationRecord
+end
