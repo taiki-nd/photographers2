@@ -1,0 +1,2 @@
+class LenzsController < ApplicationController
+end
