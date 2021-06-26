@@ -371,7 +371,7 @@ form input[type="submit"]:hover {
 }
 
 /*-----------------------------------------
-------------camearss/show(id)
+------------camears(lenz)/show(id)
 -----------------------------------------*/
 
 .show_cam img{
@@ -381,4 +381,38 @@ form input[type="submit"]:hover {
 .show_cam{
     display: flex;
     justify-content: space-around;
+}
+
+.grid_star{
+    margin-top: 20px;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+#star_total,
+#star_comfort,
+#star_imgq,
+#star_cost{
+  width: 80%;
+  margin: 5px auto 15px;
+  padding: 15px;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  display: block;
+  display: flex;
+}
+
+.star_left{
+    width: 200px;
+}
+
+.review{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.review_content{
+    border-bottom: 1px solid #212121;
 }

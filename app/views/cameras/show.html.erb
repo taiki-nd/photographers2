@@ -16,38 +16,121 @@
             </div>   
         </div>
     </div>
+    
+    <!-- review area ----------------------------------
+    
+    -------------------------------------------------->
+    
     <div class="container">
         <h3><%= @camera.camera_maker %> / <%= @camera.camera_name %> のレビュー</h3>
         <% if user_signed_in? %>
             <%= form_with(model: [@camera, @review], local: true) do |form| %>
-                <div class="field" id="star">
-                    <%= form.label :total_rate,  "星評価 (※必須)" ,id: "e"%>
-                    <%= form.hidden_field :rate, id: :review_star %>
+                <div class="grid_star">
+                    <div id="star_total">
+                        <div class="star_left">
+                            <%= form.label :total_rate, "総合評価"%>
+                        </div>
+                        <div class="star_right">
+                            <%= form.hidden_field :total_rate, class: :review_star %>
+                        </div>
+                        
+                         <script>
+                            $('#star_total').raty({
+                                size     : 36,
+                                starOff:  '<%= asset_path('star-off.png') %>',
+                                starOn : '<%= asset_path('star-on.png') %>',
+                                starHalf: '<%= asset_path('star-half.png') %>',
+                                scoreName: 'review[total_rate]',
+                            });
+                        </script>
+                    </div>
+                    <div id="star_comfort">
+                        <div class="star_left">
+                            <%= form.label :comfort_rate, "快適性" %>
+                        </div>
+                        <div class="star_right">
+                            <%= form.hidden_field :comfort_rate, class: :review_star %>
+                        </div>
+                        
+                         <script>
+                            $('#star_comfort').raty({
+                                size     : 36,
+                                starOff:  '<%= asset_path('star-off.png') %>',
+                                starOn : '<%= asset_path('star-on.png') %>',
+                                starHalf: '<%= asset_path('star-half.png') %>',
+                                scoreName: 'review[comfort_rate]',
+                            });
+                        </script>
+                    </div>
+                    <div id="star_imgq">
+                        <div class="star_left">
+                            <%= form.label :imgquality_rate, "画質" %>
+                        </div>
+                        <div class="star_right">
+                            <%= form.hidden_field :imgquality_rate, class: :review_star %>
+                        </div>
+                        
+                         <script>
+                            $('#star_imgq').raty({
+                                size     : 36,
+                                starOff:  '<%= asset_path('star-off.png') %>',
+                                starOn : '<%= asset_path('star-on.png') %>',
+                                starHalf: '<%= asset_path('star-half.png') %>',
+                                scoreName: 'review[imgquality_rate]',
+                            });
+                        </script>
+                    </div>
+                    <div id="star_cost">
+                        <div class="star_left">
+                            <%= form.label :cost_rate, "コスパ" %>
+                        </div>
+                        <div class="star_right">
+                            <%= form.hidden_field :cost_rate, class: :review_star %>
+                        </div>
+                        
+                         <script>
+                            $('#star_cost').raty({
+                                size     : 36,
+                                starOff:  '<%= asset_path('star-off.png') %>',
+                                starOn : '<%= asset_path('star-on.png') %>',
+                                starHalf: '<%= asset_path('star-half.png') %>',
+                                scoreName: 'review[cost_rate]',
+                            });
+                        </script>
+                    </div>
                 </div>
-                <script>
-                    $('#star').raty({
-                        size     : 36,
-                        starOff:  '<%= asset_path('star-off.png') %>',
-                        starOn : '<%= asset_path('star-on.png') %>',
-                        starHalf: '<%= asset_path('star-half.png') %>',
-                        scoreName: 'comment[rate]',
-                    });
-                </script>
-                <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+                <%= form.text_area :content, placeholder: "コメントする", rows: "2" %>
                 <%= form.submit "SEND" %>
             <% end %>
         <% else %>
         <strong><p>レビューの投稿には新規登録/ログインが必要です</p></strong>
         <% end %>
+        
         <% if @reviews %>
             <% @reviews.each do |review| %>
-                <div class="comment">
-                    <P><strong><%= link_to review.user.nickname, "/users/#{review.user_id}" %>:</strong>   <%= comment.text %></P>
-                    <% if user_signed_in? && current_user.id == comment.user_id %>
+                <div class="review">
+                    <P><strong><%= link_to review.user.nickname, "/users/#{review.user_id}" %>:</strong></P>
+                    <div id="star-rate-<%= review.id %>"></div>
+                    <script>
+                          $('#star-rate-<%= review.id %>').raty({
+                            size: 36,
+                            starOff:  '<%= asset_path('star-off.png') %>',
+                            starOn : '<%= asset_path('star-on.png') %>',
+                            starHalf: '<%= asset_path('star-half.png') %>',
+                            half: true,
+                            score: <%= review.total_rate %>,
+                            });
+                    </script> 
+                    <% if user_signed_in? && current_user.id == review.user_id %>
                         <%= link_to '削除', camera_review_path(@camera, review), method: :delete %>
                     <% end %>
                 </div>
+                <div class="review_content">
+                    <p><%= review.content %></P>
+                </div>
+                
             <% end %>
         <% end %>
+        
     </div>
 </div>

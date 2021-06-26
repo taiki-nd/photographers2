@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
         @camera = Camera.find(params[:camera_id])
         review = @camera.reviews.find(params[:id])
         review.destroy 
-        redirect_to "/cameras/#{review.post.id}"
+        redirect_to "/cameras/#{review.camera.id}"
     end
     
     private
