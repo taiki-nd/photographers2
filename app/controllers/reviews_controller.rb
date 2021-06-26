@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     
     def create
-        review = Review.create(review_params)
+        review = Review.create(cam_review_params)
         redirect_to "/cameras/#{review.camera.id}"
     end
     
@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     end
     
     private
-    def review_params
+    def cam_review_params
         params.require(:review).permit(:total_rate, :comfort_rate, :imgquality_rate, :cost_rate, :content).merge(user_id: current_user.id, camera_id: params[:camera_id])
     end
     
