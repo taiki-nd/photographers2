@@ -20,6 +20,19 @@
         <h3><%= @camera.camera_maker %> / <%= @camera.camera_name %> のレビュー</h3>
         <% if user_signed_in? %>
             <%= form_with(model: [@camera, @review], local: true) do |form| %>
+                <div class="field" id="star">
+                    <%= form.label :total_rate,  "星評価 (※必須)" ,id: "e"%>
+                    <%= form.hidden_field :rate, id: :review_star %>
+                </div>
+                <script>
+                    $('#star').raty({
+                        size     : 36,
+                        starOff:  '<%= asset_path('star-off.png') %>',
+                        starOn : '<%= asset_path('star-on.png') %>',
+                        starHalf: '<%= asset_path('star-half.png') %>',
+                        scoreName: 'comment[rate]',
+                    });
+                </script>
                 <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
                 <%= form.submit "SEND" %>
             <% end %>
