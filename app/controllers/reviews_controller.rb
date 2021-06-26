@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     
     def create
-        Review.create(review_params)
+        review = Review.create(review_params)
         redirect_to "/cameras/#{review.camera.id}"
     end
     
