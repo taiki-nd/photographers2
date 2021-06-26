@@ -1,7 +1,7 @@
 <div class="content">
-    <h2 class="sub_title"><%= @camera.camera_maker %> / <%= @camera.camera_name %>のレビュー</h2>
+    <h2 class="sub_title"><%= @camera.camera_maker %> / <%= @camera.camera_name %> の情報</h2>
     <div class="container">
-        <h3>基本情報</h3>
+        <h3><%= @camera.camera_maker %> / <%= @camera.camera_name %> の基本情報</h3>
         <div class="show_cam">
             <div class="camera_rightside">
                 <img class="posted_img" src="<%= @camera.image %>">
@@ -15,5 +15,26 @@
                 <%= link_to '編集', edit_camera_path(@camera.id), method: :get %>
             </div>   
         </div>
+    </div>
+    <div class="container">
+        <h3><%= @camera.camera_maker %> / <%= @camera.camera_name %> のレビュー</h3>
+        <% if user_signed_in? %>
+            <%= form_with(model: [@camera, @review], local: true) do |form| %>
+                <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+                <%= form.submit "SEND" %>
+            <% end %>
+        <% else %>
+        <strong><p>レビューの投稿には新規登録/ログインが必要です</p></strong>
+        <% end %>
+        <% if @reviews %>
+            <% @reviews.each do |review| %>
+                <div class="comment">
+                    <P><strong><%= link_to review.user.nickname, "/users/#{review.user_id}" %>:</strong>   <%= comment.text %></P>
+                    <% if user_signed_in? && current_user.id == comment.user_id %>
+                        <%= link_to '削除', camera_review_path(@camera, review), method: :delete %>
+                    <% end %>
+                </div>
+            <% end %>
+        <% end %>
     </div>
 </div>

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :destroy]
   end
   
-  resources :lenzsdo do
+  resources :lenzs do
     resources :reviews, only: [:create, :destroy]
   end
   

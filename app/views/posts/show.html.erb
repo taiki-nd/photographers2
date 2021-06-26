@@ -21,25 +21,25 @@
     </div>
     
     <div class="container">
-            <% if user_signed_in? %>
-                <%= form_with(model: [@post, @comment], local: true) do |form| %>
-                    <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-                    <%= form.submit "SEND" %>
-                <% end %>
-            <% else %>
-            <strong><p>コメントの投稿には新規登録/ログインが必要です</p></strong>
+        <% if user_signed_in? %>
+            <%= form_with(model: [@post, @comment], local: true) do |form| %>
+                <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+                <%= form.submit "SEND" %>
             <% end %>
-            <h4>＜コメント一覧＞</h4>
-            <% if @comments %>
-                <% @comments.each do |comment| %>
-                    <div class="comment">
-                        <P><strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>   <%= comment.text %></P>
-                        <% if user_signed_in? && current_user.id == comment.user_id %>
-                            <%= link_to '削除', post_comment_path(@post, comment), method: :delete %>
-                        <% end %>
-                    </div>
-                <% end %>
+        <% else %>
+        <strong><p>コメントの投稿には新規登録/ログインが必要です</p></strong>
+        <% end %>
+        <h4>＜コメント一覧＞</h4>
+        <% if @comments %>
+            <% @comments.each do |comment| %>
+                <div class="comment">
+                    <P><strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>   <%= comment.text %></P>
+                    <% if user_signed_in? && current_user.id == comment.user_id %>
+                        <%= link_to '削除', post_comment_path(@post, comment), method: :delete %>
+                    <% end %>
+                </div>
             <% end %>
-        </div>
+        <% end %>
+    </div>
         
 </div>
