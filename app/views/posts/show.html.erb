@@ -7,10 +7,10 @@
         
         <div class="right">
             <p class="post_p">撮影者：　<%= @post.user.nickname %></p>
-            <p class="post_p">カメラ：　<%= @post.camera %></p>
-            <p class="post_p">レンズ：　<%= @post.lens %></p>
+            <p class="post_p">カメラ：　<a href="/posts/search?keyword=<%= @post.camera_maker %>&commit=検索"><%= @post.camera_maker %></a> / <a href="/posts/search?keyword=<%= @post.camera %>&commit=検索"><%= @post.camera %></a></p>
+            <p class="post_p">レンズ：　<a href="/posts/search?keyword=<%= @post.lens_maker %>&commit=検索"><%= @post.lens_maker %></a> / <a href="/posts/search?keyword=<%= @post.lens %>&commit=検索"><%= @post.lens %></a></p>
             <p class="post_p">カテゴリー：　<%= @post.image_cat %></p>
-            <p class="post_p">撮影場所：　<%= @post.place %></p>
+            <p class="post_p">撮影場所：　<a href="/posts/search?keyword=<%= @post.place %>&commit=検索">%= @post.place %></p>
             <p class="post_p">コメント：　</br><%= @post.text %></p>
             <% if user_signed_in? && current_user.id == @post.user_id %>
                 <%= link_to '削除', post_path(@post.id), method: :delete %>
