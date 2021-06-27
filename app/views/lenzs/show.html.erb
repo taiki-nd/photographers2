@@ -1,12 +1,12 @@
 <div class="content">
-    <h2 class="sub_title"><%= @lenz.lens_maker %> / <%= @lenz.lens_name %>のレビュー</h2>
+    <h2 class="sub_title"><%= @lenz.lens_maker %> / <%= @lenz.lens_name %>の情報</h2>
     <div class="container">
-        <h3>基本情報</h3>
+        <h3><%= @lenz.lens_maker %> / <%= @lenz.lens_name %>の基本情報</h3>
         <div class="show_cam">
-            <div class="camera_rightside">
+            <div class="lenz_rightside">
                 <img class="posted_img" src="<%= @lenz.image %>">
             </div>
-            <div class="camera_center">
+            <div class="lenz_center">
                 <p class="post_p">レンズ：<%= @lenz.lens_maker %> / <%= @lenz.lens_name %> </p>
                 <p class="post_p">センサー：<%= @lenz.sensor_size %></p>
                 <p class="post_p">f値：<%= @lenz.f_number %></p>
@@ -17,4 +17,167 @@
             </div>   
         </div>
     </div>
+    
+    <!-- revieww area ----------------------------------
+    
+    -------------------------------------------------->
+    
+    <div class="container">
+        <h3><%= @lenz.lens_maker %> / <%= @lenz.lens_name %> のレビューを投稿</h3>
+        <% if user_signed_in? %>
+            <%= form_with(model: [@lenz, @revieww], local: true) do |form| %>
+                <div class="grid_star">
+                    <div id="star_total">
+                        <div class="star_left">
+                            <%= form.label :total_rate, "総合評価"%>
+                        </div>
+                        <div class="star_right">
+                            <%= form.hidden_field :total_rate, class: :revieww_star %>
+                        </div>
+                        
+                         <script>
+                            $('#star_total').raty({
+                                size     : 36,
+                                starOff:  '<%= asset_path('star-off.png') %>',
+                                starOn : '<%= asset_path('star-on.png') %>',
+                                starHalf: '<%= asset_path('star-half.png') %>',
+                                scoreName: 'revieww[total_rate]',
+                            });
+                        </script>
+                    </div>
+                    <div id="star_comfort">
+                        <div class="star_left">
+                            <%= form.label :comfort_rate, "使い心地" %>
+                        </div>
+                        <div class="star_right">
+                            <%= form.hidden_field :comfort_rate, class: :revieww_star %>
+                        </div>
+                        
+                         <script>
+                            $('#star_comfort').raty({
+                                size     : 36,
+                                starOff:  '<%= asset_path('star-off.png') %>',
+                                starOn : '<%= asset_path('star-on.png') %>',
+                                starHalf: '<%= asset_path('star-half.png') %>',
+                                scoreName: 'revieww[comfort_rate]',
+                            });
+                        </script>
+                    </div>
+                    <div id="star_imgq">
+                        <div class="star_left">
+                            <%= form.label :imgquality_rate, "画質" %>
+                        </div>
+                        <div class="star_right">
+                            <%= form.hidden_field :imgquality_rate, class: :revieww_star %>
+                        </div>
+                        
+                         <script>
+                            $('#star_imgq').raty({
+                                size     : 36,
+                                starOff:  '<%= asset_path('star-off.png') %>',
+                                starOn : '<%= asset_path('star-on.png') %>',
+                                starHalf: '<%= asset_path('star-half.png') %>',
+                                scoreName: 'revieww[imgquality_rate]',
+                            });
+                        </script>
+                    </div>
+                    <div id="star_cost">
+                        <div class="star_left">
+                            <%= form.label :cost_rate, "コスパ" %>
+                        </div>
+                        <div class="star_right">
+                            <%= form.hidden_field :cost_rate, class: :revieww_star %>
+                        </div>
+                        
+                         <script>
+                            $('#star_cost').raty({
+                                size     : 36,
+                                starOff:  '<%= asset_path('star-off.png') %>',
+                                starOn : '<%= asset_path('star-on.png') %>',
+                                starHalf: '<%= asset_path('star-half.png') %>',
+                                scoreName: 'revieww[cost_rate]',
+                            });
+                        </script>
+                    </div>
+                </div>
+                <%= form.text_area :content, placeholder: "コメントする", rows: "2" %>
+                <%= form.submit "review" %>
+            <% end %>
+        <% else %>
+        <strong><p>レビューの投稿には新規登録/ログインが必要です</p></strong>
+        <% end %>
+    </div>
+    <div class="container">
+        <h3><%= @lenz.lens_maker %> / <%= @lenz.lens_name %> のレビュー</h3>
+        <% if @reviewws %>
+            <% @reviewws.each do |revieww| %>
+                <div class="revieww">
+                    <div class="revieww_name">
+                        <P><strong><%= link_to revieww.user.nickname, "/users/#{revieww.user_id}" %>:</strong></P>
+                    </div>
+                    <div class="revieww_stars">
+                        <div id="star_total_result<%= revieww.id %>">総合評価　</div>
+                        <script>
+                              $('#star_total_result<%= revieww.id %>').raty({
+                                size: 36,
+                                starOff:  '<%= asset_path('star-off.png') %>',
+                                starOn : '<%= asset_path('star-on.png') %>',
+                                starHalf: '<%= asset_path('star-half.png') %>',
+                                half: true,
+                                score: <%= revieww.total_rate %>,
+                                });
+                        </script> 
+                        
+                        <div id="star_comfort_result<%= revieww.id %>">使い心地　</div>
+                        <script>
+                              $('#star_comfort_result<%= revieww.id %>').raty({
+                                size: 36,
+                                starOff:  '<%= asset_path('star-off.png') %>',
+                                starOn : '<%= asset_path('star-on.png') %>',
+                                starHalf: '<%= asset_path('star-half.png') %>',
+                                half: true,
+                                score: <%= revieww.comfort_rate %>,
+                                });
+                        </script> 
+                        
+                        <div id="star_imgq_result<%= revieww.id %>">画質　　　</div>
+                        <script>
+                              $('#star_imgq_result<%= revieww.id %>').raty({
+                                size: 36,
+                                starOff:  '<%= asset_path('star-off.png') %>',
+                                starOn : '<%= asset_path('star-on.png') %>',
+                                starHalf: '<%= asset_path('star-half.png') %>',
+                                half: true,
+                                score: <%= revieww.imgquality_rate %>,
+                                });
+                        </script> 
+                        
+                        <div id="star_cost_result<%= revieww.id %>">コスパ　　</div>
+                        <script>
+                              $('#star_cost_result<%= revieww.id %>').raty({
+                                size: 36,
+                                starOff:  '<%= asset_path('star-off.png') %>',
+                                starOn : '<%= asset_path('star-on.png') %>',
+                                starHalf: '<%= asset_path('star-half.png') %>',
+                                half: true,
+                                score: <%= revieww.cost_rate %>,
+                                });
+                        </script> 
+                    </div>
+                    
+                    <% if user_signed_in? && current_user.id == revieww.user_id %>
+                        <%= link_to '削除', lenz_revieww_path(@lenz, revieww), method: :delete %>
+                    <% end %>
+                </div>
+                <div class="revieww_content">
+                    <p><%= revieww.content %></P>
+                </div>
+            <% end %>
+        <% else %>
+            <p><%= @lenz.lens_maker %> / <%= @lenz.lens_name %> のレビューは現在ありません</p>
+        <% end %>
+        
+    </div>
+</div>
+    
 </div>

@@ -28,11 +28,13 @@ class LenzsController < ApplicationController
     
     def show
         @lenz = Lenz.find(params[:id])
+        @revieww = Revieww.new
+        @reviewws = @lenz.reviewws.includes(:user)
     end
     
     private
     def lenz_params
-        params.require(:lenz).permit(:image, :lens_maker, :lens_name, :sensor_size, :f_number, :focal_length, :weight)
+        params.require(:lenz).permit(:image, :lens_maker, :lens_name, :sensor_size, :f_number, :focal_length, :weight).merge(user_id: current_user.id)
     end
     
 end

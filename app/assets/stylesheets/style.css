@@ -407,13 +407,15 @@ form input[type="submit"]:hover {
     width: 200px;
 }
 
-.review{
+.review,
+.revieww{
     padding-top: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.review_content{
+.review_content,
+.revieww_content{
     border-bottom: 1px solid #212121;
 }
