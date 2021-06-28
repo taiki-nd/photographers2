@@ -33,6 +33,7 @@ class PostsController < ApplicationController
     def show
         @comment = Comment.new
         @comments = @post.comments.includes(:user)
+        @camera = Camera.find_by(camera_name: @post.camera)
     end
     
     def search
