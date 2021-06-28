@@ -1,5 +1,8 @@
 <div class="content">
     <h2 class="sub_title">カメラ一覧</h2>
+    <% if current_user&.admin? %>
+        <%= link_to '新規カメラの追加', new_camera_path, method: :get %>
+    <% end %>
     <div class="container">
         <div class="grid_cam">
             <% @cameras.each do |camera| %>
