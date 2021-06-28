@@ -30,9 +30,7 @@ class CamerasController < ApplicationController
         @camera = Camera.find(params[:id])
         @review = Review.new
         @reviews = @camera.reviews.includes(:user)
-        post = Post.find(params[:id])
-        cam = Camera.find_by(camera_name: post.camera)
-        @posts = Post.where(camera: cam.camera_name).includes(:user)
+        @posts = Post.where(camera: @camera.camera_name).includes(:user)
     end
     
     private
