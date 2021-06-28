@@ -1,7 +1,7 @@
 class LenzsController < ApplicationController
     
     def index
-        @lenzs = Lenz.all
+        @lenzs = Lenz.all.page(params[:page]).per(40).order('created_at DESC')
     end
     
     def new
@@ -29,8 +29,8 @@ class LenzsController < ApplicationController
     def show
         @lenz = Lenz.find(params[:id])
         @revieww = Revieww.new
-        @reviewws = @lenz.reviewws.includes(:user)
-        @posts = Post.where(lens: @lenz.lens_name).includes(:user)
+        @reviewws = @lenz.reviewws.includes(:user).page(params[:page]).per(5).order('created_at DESC')
+        @posts = Post.where(lens: @lenz.lens_name).includes(:user).page(params[:page]).per(8).order('created_at DESC')
     end
     
     private

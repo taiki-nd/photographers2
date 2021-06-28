@@ -1,7 +1,7 @@
 class CamerasController < ApplicationController
     
     def index
-        @cameras = Camera.all
+        @cameras = Camera.all.page(params[:page]).per(40).order('created_at DESC')
     end
     
     def new
@@ -29,8 +29,8 @@ class CamerasController < ApplicationController
     def show
         @camera = Camera.find(params[:id])
         @review = Review.new
-        @reviews = @camera.reviews.includes(:user)
-        @posts = Post.where(camera: @camera.camera_name).includes(:user)
+        @reviews = @camera.reviews.includes(:user).includes(:user).page(params[:page]).per(5).order('created_at DESC')
+        @posts = Post.where(camera: @camera.camera_name).includes(:user).page(params[:page]).per(8).order('created_at DESC')
     end
     
     private

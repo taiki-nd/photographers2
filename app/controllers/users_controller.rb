@@ -8,7 +8,7 @@ class UsersController < ApplicationController
         #↓このままだとcurrent_userが他のユーザーのマイページをクリックしても、自分のマイページに飛んでしまう
         
         user = User.find(params[:id])
-        @posts = user.posts.page(params[:page]).per(8).order('created_at DESC')
+        @posts = user.posts.page(params[:page]).per(16).order('created_at DESC')
         @nickname = user.nickname
     end
     

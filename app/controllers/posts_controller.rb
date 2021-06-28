@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     
     def index
         #@posts = Post.all
-        @posts = Post.includes(:user).page(params[:page]).per(8).order('created_at DESC')
+        @posts = Post.includes(:user).page(params[:page]).per(40).order('created_at DESC')
     end
     
     def new
@@ -32,13 +32,13 @@ class PostsController < ApplicationController
     
     def show
         @comment = Comment.new
-        @comments = @post.comments.includes(:user)
+        @comments = @post.comments.includes(:user).per(20).order('created_at DESC')
         @camera = Camera.find_by(camera_name: @post.camera)
         @lenz = Lenz.find_by(lens_name: @post.lens)
     end
     
     def search
-        @posts = Post.search(params[:keyword]).includes(:user).page(params[:page]).per(8).order('created_at DESC')
+        @posts = Post.search(params[:keyword]).includes(:user).page(params[:page]).per(40).order('created_at DESC')
     end
     
     private
