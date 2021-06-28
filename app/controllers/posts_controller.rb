@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     
     def show
         @comment = Comment.new
-        @comments = @post.comments.includes(:user).per(20).order('created_at DESC')
+        @comments = @post.comments.includes(:user).page(params[:page]).per(20).order('created_at DESC')
         @camera = Camera.find_by(camera_name: @post.camera)
         @lenz = Lenz.find_by(lens_name: @post.lens)
     end
