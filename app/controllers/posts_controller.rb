@@ -34,6 +34,7 @@ class PostsController < ApplicationController
         @comment = Comment.new
         @comments = @post.comments.includes(:user)
         @camera = Camera.find_by(camera_name: @post.camera)
+        @lenz = Lenz.find_by(lens_name: @post.lens)
     end
     
     def search
