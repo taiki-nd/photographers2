@@ -1,5 +1,7 @@
 class LenzsController < ApplicationController
     
+    before_action :move_to_index, except: [:index, :show, :search]
+    
     def index
         @lenzs = Lenz.all.page(params[:page]).per(40).order('created_at DESC')
     end
@@ -36,6 +38,12 @@ class LenzsController < ApplicationController
     private
     def lenz_params
         params.require(:lenz).permit(:image, :lens_maker, :lens_name, :sensor_size, :f_number, :focal_length, :weight).merge(user_id: current_user.id)
+    end
+    
+    def move_to_index
+        unless current_user&.admin
+            redirect_to action: :index
+        end
     end
     
 end
