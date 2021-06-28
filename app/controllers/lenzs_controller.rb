@@ -30,6 +30,9 @@ class LenzsController < ApplicationController
         @lenz = Lenz.find(params[:id])
         @revieww = Revieww.new
         @reviewws = @lenz.reviewws.includes(:user)
+        post = Post.find(params[:id])
+        @len = Lenz.find_by(lens_name: post.lens)
+        @posts = Post.where(lens: @len.lens_name).includes(:user)
     end
     
     private
