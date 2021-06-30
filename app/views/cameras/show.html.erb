@@ -11,8 +11,10 @@
                 <p class="post_p">センサー：<%= @camera.sensor_size %> / <%= @camera.pixels %>万画素 </p>
                 <p class="post_p">iso：<%= @camera.iso %></p>
                 <p class="post_p">重量：<%= @camera.weight %>g</p>
-                <%= link_to '削除', camera_path(@camera.id), method: :delete %>
-                <%= link_to '編集', edit_camera_path(@camera.id), method: :get %>
+                <% if current_user$.admin %>
+                    <%= link_to '削除', camera_path(@camera.id), method: :delete %>
+                    <%= link_to '編集', edit_camera_path(@camera.id), method: :get %>
+                <% end %>
             </div>   
         </div>
     </div>
