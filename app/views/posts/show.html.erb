@@ -34,10 +34,12 @@
             <% @comments.each do |comment| %>
                 <div class="comment">
                     <P><strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>   <%= comment.text %></P>
-                    <% if user_signed_in? && current_user.id == comment.user_id || current_user&.admin? %>
-                        <%= link_to '削除', post_comment_path(@post, comment), method: :delete %>
-                        <%= link_to '編集', edit_post_comment_path(@post, comment), method: :get %>
-                    <% end %>
+                    <div>
+                        <% if user_signed_in? && current_user.id == comment.user_id || current_user&.admin? %>
+                            <%= link_to '削除', post_comment_path(@post, comment), method: :delete %>
+                            <%= link_to '編集', edit_post_comment_path(@post, comment), method: :get %>
+                        <% end %>
+                    </div>
                 </div>
             <% end %>
         <% end %>
