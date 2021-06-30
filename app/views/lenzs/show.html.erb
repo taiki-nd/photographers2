@@ -12,8 +12,10 @@
                 <p class="post_p">f値：<%= @lenz.f_number %></p>
                 <p class="post_p">焦点距離：<%= @lenz.focal_length %>mm</p>
                 <p class="post_p">重量：<%= @lenz.weight %>g</p>
-                <%= link_to '削除', lenz_path(@lenz.id), method: :delete %>
-                <%= link_to '編集', edit_lenz_path(@lenz.id), method: :get %>
+                <% if current_user&.admin? %>
+                    <%= link_to '削除', lenz_path(@lenz.id), method: :delete %>
+                    <%= link_to '編集', edit_lenz_path(@lenz.id), method: :get %>
+                <% end %>
             </div>   
         </div>
     </div>
@@ -165,7 +167,7 @@
                         </script> 
                     </div>
                     
-                    <% if user_signed_in? && current_user.id == revieww.user_id || current_user$.admin %>
+                    <% if user_signed_in? && current_user.id == revieww.user_id || current_user&.admin? %>
                         <%= link_to '削除', lenz_revieww_path(@lenz, revieww), method: :delete %>
                     <% end %>
                 </div>
@@ -190,7 +192,7 @@
                     <p class="post_p">レンズ：　<a href="/posts/search?keyword=<%= post.lens_maker %>&commit=検索"><%= post.lens_maker %></a> / <a href="/posts/search?keyword=<%= post.lens %>&commit=検索"><%= post.lens %></a></p>
                     <p class="post_p">カテゴリー：　<%= post.image_cat %></p>
                     <%= link_to '詳細', post_path(post.id), method: :get %>
-                    <% if user_signed_in? && current_user.id == post.user_id %>
+                    <% if user_signed_in? && current_user.id == post.user_id || current_user&.admin? %>
                         <%= link_to '削除', post_path(post.id), method: :delete %>
                         <%= link_to '編集', edit_post_path(post.id), method: :get %>
                     <% end %>
