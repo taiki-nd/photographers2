@@ -192,12 +192,11 @@
         <div class="grid">
             <% @posts.each do |post| %>
                 <div class="post">
-                    <img class="posted_img" src="<%= post.image %>">
+                    <a href="/posts/<%= post.id %>"><img class="posted_img" src="<%= post.image %>"></a> 
                     <p class="post_p">投稿者：　<a href="/users/<%= post.user.id %>"><%= post.user.nickname %></a></p>
                     <p class="post_p">カメラ：　<a href="/posts/search?keyword=<%= post.camera_maker %>&commit=検索"><%= post.camera_maker %></a> / <a href="/posts/search?keyword=<%= post.camera %>&commit=検索"><%= post.camera %></a></p>
                     <p class="post_p">レンズ：　<a href="/posts/search?keyword=<%= post.lens_maker %>&commit=検索"><%= post.lens_maker %></a> / <a href="/posts/search?keyword=<%= post.lens %>&commit=検索"><%= post.lens %></a></p>
                     <p class="post_p">カテゴリー：　<%= post.image_cat %></p>
-                    <%= link_to '詳細', post_path(post.id), method: :get %>
                     <% if user_signed_in? && current_user.id == post.user_id || current_user&.admin? %>
                         <%= link_to '削除', post_path(post.id), method: :delete %>
                         <%= link_to '編集', edit_post_path(post.id), method: :get %>
