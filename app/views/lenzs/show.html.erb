@@ -169,6 +169,7 @@
                     
                     <% if user_signed_in? && current_user.id == revieww.user_id || current_user&.admin? %>
                         <%= link_to '削除', lenz_revieww_path(@lenz, revieww), method: :delete %>
+                        <%= link_to '編集', edit_lenz_revieww_path(@lenz, revieww), method: :get %>
                     <% end %>
                 </div>
                 <div class="revieww_content">

@@ -13,14 +13,14 @@ class ReviewwsController < ApplicationController
     end
     
     def edit
-        @lenz = lenz.find(params[:lenz_id])
-        @review = @lenz.reviews.find(params[:id])
+        @lenz = Lenz.find(params[:lenz_id])
+        @revieww = @lenz.reviewws.find(params[:id])
     end
     
     def update
-        @lenz = lenz.find(params[:lenz_id])
+        @lenz = Lenz.find(params[:lenz_id])
         revieww = @lenz.reviewws.find(params[:id])
-        revieww.update(cam_revieww_params)
+        revieww.update(review_params)
         redirect_to "/lenzs/#{revieww.lenz.id}"
     end
     
