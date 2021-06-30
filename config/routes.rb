@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   
   resources :cameras do
-    resources :reviews, only: [:create, :destroy]
+    resources :reviews, only: [:create, :destroy, :edit, :update]
   end
   
   resources :lenzs do
