@@ -12,6 +12,18 @@ class ReviewwsController < ApplicationController
         redirect_to "/lenzs/#{revieww.lenz.id}"
     end
     
+    def edit
+        @lenz = lenz.find(params[:lenz_id])
+        @review = @lenz.reviews.find(params[:id])
+    end
+    
+    def update
+        @lenz = lenz.find(params[:lenz_id])
+        revieww = @lenz.reviewws.find(params[:id])
+        revieww.update(cam_revieww_params)
+        redirect_to "/lenzs/#{revieww.lenz.id}"
+    end
+    
     private
     def review_params
         params.require(:revieww).permit(:total_rate, :comfort_rate, :imgquality_rate, :cost_rate, :content).merge(user_id: current_user.id, lenz_id: params[:lenz_id])
