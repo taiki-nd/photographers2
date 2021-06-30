@@ -165,14 +165,15 @@
                                 });
                         </script> 
                     </div>
-                    
-                    <% if user_signed_in? && current_user.id == review.user_id || current_user&.admin? %>
-                        <%= link_to '削除', camera_review_path(@camera, review), method: :delete %>
-                        <%= link_to '編集', edit_camera_review_path(@camera, review), method: :get %>
-                    <% end %>
                 </div>
                 <div class="review_content">
                     <p><%= review.content %></P>
+                    <div>
+                        <% if user_signed_in? && current_user.id == review.user_id || current_user&.admin? %>
+                            <p><%= link_to '削除', camera_review_path(@camera, review), method: :delete %>
+                            <%= link_to '編集', edit_camera_review_path(@camera, review), method: :get %></p>
+                        <% end %>
+                    </div>
                 </div>
                 
             <% end %>
