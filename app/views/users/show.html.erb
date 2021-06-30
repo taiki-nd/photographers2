@@ -1,9 +1,7 @@
 <div class="content">
+    <h2 class="sub_title"><%= @nickname %>さんのページ</h2>
     <div class="container">
-        <h3><%= @nickname %>さんのページ</h3>
-        <% if user_signed_in? && current_user.id == @user.id  || current_user&.admin? %>
-            <%= link_to '登録情報を編集する', edit_user_registration_path(current_user.id), method: :get %>
-        <% end %>
+        <h3><%= @nickname %>さんの投稿</h3>
         <div class="grid">
             <% @posts.each do |post| %>
                 <div class="post">
@@ -18,4 +16,10 @@
             <% end %>
         </div>
     </div>
+    <% if user_signed_in? && current_user.id == @user.id  || current_user&.admin? %>
+        <div class="container">
+            <h3><%= @nickname %>さん専用エリア</h3>
+            <%= link_to '登録情報を編集する', edit_user_registration_path(current_user.id), method: :get %>
+        </div>
+   <% end %>
 </div>
