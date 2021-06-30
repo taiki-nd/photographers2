@@ -2,82 +2,82 @@
     <div class="container">
         <h3>編集する</h3>
         <%= form_with(model: [@camera, @review], local: true) do |form| %>
-                <div class="grid_star">
-                    <div id="star_total">
-                        <div class="star_left">
-                            <%= form.label :total_rate, "総合評価"%>
-                        </div>
-                        <div class="star_right">
-                            <%= form.hidden_field :total_rate, class: :review_star %>
-                        </div>
-                        
-                         <script>
-                            $('#star_total').raty({
-                                size     : 36,
-                                starOff:  '<%= asset_path('star-off.png') %>',
-                                starOn : '<%= asset_path('star-on.png') %>',
-                                starHalf: '<%= asset_path('star-half.png') %>',
-                                scoreName: 'review[total_rate]',
-                            });
-                        </script>
+            <div class="grid_star">
+                <div id="star_total">
+                    <div class="star_left">
+                        <%= form.label :total_rate, "総合評価"%>
                     </div>
-                    <div id="star_comfort">
-                        <div class="star_left">
-                            <%= form.label :comfort_rate, "使い心地" %>
-                        </div>
-                        <div class="star_right">
-                            <%= form.hidden_field :comfort_rate, class: :review_star %>
-                        </div>
-                        
-                         <script>
-                            $('#star_comfort').raty({
-                                size     : 36,
-                                starOff:  '<%= asset_path('star-off.png') %>',
-                                starOn : '<%= asset_path('star-on.png') %>',
-                                starHalf: '<%= asset_path('star-half.png') %>',
-                                scoreName: 'review[comfort_rate]',
-                            });
-                        </script>
+                    <div class="star_right">
+                        <%= form.hidden_field :total_rate, class: :review_star %>
                     </div>
-                    <div id="star_imgq">
-                        <div class="star_left">
-                            <%= form.label :imgquality_rate, "画質" %>
-                        </div>
-                        <div class="star_right">
-                            <%= form.hidden_field :imgquality_rate, class: :review_star %>
-                        </div>
-                        
-                         <script>
-                            $('#star_imgq').raty({
-                                size     : 36,
-                                starOff:  '<%= asset_path('star-off.png') %>',
-                                starOn : '<%= asset_path('star-on.png') %>',
-                                starHalf: '<%= asset_path('star-half.png') %>',
-                                scoreName: 'review[imgquality_rate]',
-                            });
-                        </script>
-                    </div>
-                    <div id="star_cost">
-                        <div class="star_left">
-                            <%= form.label :cost_rate, "コスパ" %>
-                        </div>
-                        <div class="star_right">
-                            <%= form.hidden_field :cost_rate, class: :review_star %>
-                        </div>
-                        
-                         <script>
-                            $('#star_cost').raty({
-                                size     : 36,
-                                starOff:  '<%= asset_path('star-off.png') %>',
-                                starOn : '<%= asset_path('star-on.png') %>',
-                                starHalf: '<%= asset_path('star-half.png') %>',
-                                scoreName: 'review[cost_rate]',
-                            });
-                        </script>
-                    </div>
+                    
+                     <script>
+                        $('#star_total').raty({
+                            size     : 36,
+                            starOff:  '<%= asset_path('star-off.png') %>',
+                            starOn : '<%= asset_path('star-on.png') %>',
+                            starHalf: '<%= asset_path('star-half.png') %>',
+                            scoreName: 'review[total_rate]',
+                        });
+                    </script>
                 </div>
-                <%= form.text_area :content, placeholder: "コメントする", rows: "2" %>
-                <%= form.submit "REVIEW" %>
-            <% end %>
+                <div id="star_comfort">
+                    <div class="star_left">
+                        <%= form.label :comfort_rate, "使い心地" %>
+                    </div>
+                    <div class="star_right">
+                        <%= form.hidden_field :comfort_rate, class: :review_star %>
+                    </div>
+                    
+                     <script>
+                        $('#star_comfort').raty({
+                            size     : 36,
+                            starOff:  '<%= asset_path('star-off.png') %>',
+                            starOn : '<%= asset_path('star-on.png') %>',
+                            starHalf: '<%= asset_path('star-half.png') %>',
+                            scoreName: 'review[comfort_rate]',
+                        });
+                    </script>
+                </div>
+                <div id="star_imgq">
+                    <div class="star_left">
+                        <%= form.label :imgquality_rate, "画質" %>
+                    </div>
+                    <div class="star_right">
+                        <%= form.hidden_field :imgquality_rate, class: :review_star %>
+                    </div>
+                    
+                     <script>
+                        $('#star_imgq').raty({
+                            size     : 36,
+                            starOff:  '<%= asset_path('star-off.png') %>',
+                            starOn : '<%= asset_path('star-on.png') %>',
+                            starHalf: '<%= asset_path('star-half.png') %>',
+                            scoreName: 'review[imgquality_rate]',
+                        });
+                    </script>
+                </div>
+                <div id="star_cost">
+                    <div class="star_left">
+                        <%= form.label :cost_rate, "コスパ" %>
+                    </div>
+                    <div class="star_right">
+                        <%= form.hidden_field :cost_rate, class: :review_star %>
+                    </div>
+                    
+                     <script>
+                        $('#star_cost').raty({
+                            size     : 36,
+                            starOff:  '<%= asset_path('star-off.png') %>',
+                            starOn : '<%= asset_path('star-on.png') %>',
+                            starHalf: '<%= asset_path('star-half.png') %>',
+                            scoreName: 'review[cost_rate]',
+                        });
+                    </script>
+                </div>
+            </div>
+            <%= form.text_area :content, placeholder: "コメントする", rows: "2" %>
+            <%= form.submit "REVIEW" %>
+        <% end %>
     </div>
 </div>
