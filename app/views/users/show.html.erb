@@ -2,6 +2,7 @@
     <h2 class="sub_title"><%= @nickname %>さんのページ</h2>
     <div class="container">
         <h3><%= @nickname %>さんの投稿</h3>
+        <%= render partial: "relationships/follow_button", locals: {user: @user} %>
         <div class="grid">
             <% @posts.each do |post| %>
                 <div class="post">

@@ -10,7 +10,13 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
+  end
+  
+  resources :relationships, only: [:create, :destroy]
+  
   
   resources :cameras do
     resources :reviews, only: [:create, :destroy, :edit, :update]
@@ -20,6 +26,6 @@ Rails.application.routes.draw do
     resources :reviewws, only: [:create, :destroy, :edit, :update]
   end
   
-  resources :relationships, only: [:create, :destroy]
+  
   
 end
