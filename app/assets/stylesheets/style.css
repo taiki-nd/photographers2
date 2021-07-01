@@ -430,3 +430,12 @@ form input[type="submit"]:hover {
     display: flex;
     justify-content: space-between;
 }
+
+/*-----------------------------------------
+------------contact
+-----------------------------------------*/
+
+.cantact_area{
+    display: flex;
+    justify-content: space-around;
+}
