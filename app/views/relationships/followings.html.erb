@@ -1,14 +1,26 @@
-<h2 class="sub_title">Follow Users</h2>
-<% if @users.exists? %>
-  
-    <% @users.each do |user| %>
-      
-        <%= user.nickname %>
-        フォロー数: <%= user.followings.count %>
-        フォロワー数: <%= user.followers.count %>
-      
-    <% end %>
-  
-<% else %>
-  <p>ユーザーはいません</p>
-<% end %>
+<div class="content">
+    <h2 class="sub_title">Follow Users</h2>
+    <div class="container">
+        <h3>フォロー数</h3>
+        <% if @users.exists? %>
+            <% @users.each do |user| %>
+                <%= link_to user.nickname, user_path(user) %>
+                フォロー数: <%= user.followings.count %>
+                フォロワー数: <%= user.followers.count %>
+            <% end %>
+        <% else %>
+            <p>ユーザーはいません</p>
+        <% end %>
+    </div>
+    <div class="container">
+        <h3>フォロー 一覧</h3>
+        <% if @users.exists? %>
+            <% @users.each do |user| %>
+                <%= link_to user.nickname, user_path(user) %>
+            <% end %>
+        <% else %>
+            <p>ユーザーはいません</p>
+        <% end %>
+    </div>
+    
+</div>

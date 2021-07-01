@@ -1,8 +1,19 @@
 <div class="content">
     <h2 class="sub_title"><%= @nickname %>さんのページ</h2>
+    <%= render partial: "relationships/follow_button", locals: {user: @user} %>
+    
+    <div class="container">
+        <h3><%= @nickname %>さんの情報</h3>
+        <div class="follow_btn">
+            <p>フォロー : <%= @user.followings.count %></p>
+        </div>
+        <div class="follow_btn">
+            <p>フォロワー : <%= @user.followers.count %></p>
+        </div>
+    </div>
+    
     <div class="container">
         <h3><%= @nickname %>さんの投稿</h3>
-        <%= render partial: "relationships/follow_button", locals: {user: @user} %>
         <div class="grid">
             <% @posts.each do |post| %>
                 <div class="post">
