@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    get 'company'
+    get 'notice'
+    get 'contact'
   end
   
   resources :users, only: [:show, :edit, :update] do

@@ -50,6 +50,18 @@ class PostsController < ApplicationController
          @post = Post.find(params[:id])
     end
     
+    def company
+        
+    end
+    
+    def notice
+        
+    end
+    
+    def contact
+        
+    end
+    
     def move_to_index
         unless user_signed_in?
             redirect_to action: :index
