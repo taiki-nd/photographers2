@@ -20,4 +20,6 @@ Rails.application.routes.draw do
     resources :reviewws, only: [:create, :destroy, :edit, :update]
   end
   
+  resources :relationships, only: [:create, :destroy]
+  
 end
