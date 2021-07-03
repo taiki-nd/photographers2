@@ -5,7 +5,7 @@
     <div class="container">
         <h3><%= @nickname %>さんの情報</h3>
         <div class="follow_btn">
-            <p>フォロー : <%= @user.followings.count %></p>
+            <p>フォロー : <a href="<%= @user.id %>/followings"><%= @user.followings.count %></a>
         </div>
         <div class="follow_btn">
             <p>フォロワー : <%= @user.followers.count %></p>
