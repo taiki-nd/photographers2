@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   
   private
     def page_params
-        params.require(:page).permit(:twitter).merge(user_id: current_user.id)
+        params.require(:page).permit(:twitter, :Date).merge(user_id: current_user.id)
     end
     
 end

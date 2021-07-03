@@ -458,3 +458,11 @@ form input[type="submit"]:hover {
     display: flex;
     justify-content: space-around;
 }
+
+/*-----------------------------------------
+------------pages/notice
+-----------------------------------------*/
+
+.notice{
+    padding: 10px;
+}

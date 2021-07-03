@@ -4,6 +4,7 @@
         <% if current_user&.admin %>
             <%= form_with(model: @page, local: true) do |form| %>
                 <%= form.text_area :twitter, placeholder: "お知らせ内容" %>
+                <%= form.text_area :Date, placeholder: "日付" %>
                 <%= form.submit "SEND" %>
             <% end %>
         <% end %>
@@ -12,7 +13,12 @@
             <% if @pages %>
                 <% @pages.each do |page| %>
                     <div class="post">
-                        <%= page.twitter %>
+                        <div class="notice">
+                           <%= page.twitter %> 
+                        </div>
+                        <div class="notice">
+                            <%= page.Date %>
+                        </div>
                     </div>
                 <% end %>
             <% end %>
