@@ -16,12 +16,12 @@ class PagesController < ApplicationController
   
   def create
     page = Page.create(page_params)
-    redirect_to "pages/notice"
+    redirect_to "/pages/notice"
   end
   
   private
     def page_params
-        params.require(:page).permit(:twitter).merge(user_id: current_user.id, page_id: params[:page_id])
+        params.require(:page).permit(:twitter).merge(user_id: current_user.id)
     end
     
 end
