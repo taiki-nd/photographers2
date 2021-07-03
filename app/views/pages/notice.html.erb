@@ -12,7 +12,7 @@
             <% if @pages %>
                 <% @pages.each do |page| %>
                     <div class="post">
-                        <p class="post_p"><p><%= page.twitter %></p>
+                        <% page.twitter %>
                     </div>
                 <% end %>
             <% end %>
