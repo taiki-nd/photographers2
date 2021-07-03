@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :reviews
   has_many :reviewws
+  has_many :pages
   
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
