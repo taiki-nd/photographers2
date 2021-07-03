@@ -13,7 +13,7 @@
                 <p class="post_p">焦点距離：<%= @lenz.focal_length %>mm</p>
                 <p class="post_p">重量：<%= @lenz.weight %>g</p>
                 <% if current_user&.admin? %>
-                    <%= link_to '削除', lenz_path(@lenz.id), method: :delete %>
+                    <%= link_to '削除', lenz_path(@lenz.id), data: { confirm: "削除しますか?" }, method: :delete %>
                     <%= link_to '編集', edit_lenz_path(@lenz.id), method: :get %>
                 <% end %>
             </div>   
@@ -171,7 +171,7 @@
                     <p><%= revieww.content %></P>
                     <div>
                         <% if user_signed_in? && current_user.id == revieww.user_id || current_user&.admin? %>
-                            <p><%= link_to '削除', lenz_revieww_path(@lenz, revieww), method: :delete %>
+                            <p><%= link_to '削除', lenz_revieww_path(@lenz, revieww), data: { confirm: "削除しますか?" }, method: :delete %>
                             <%= link_to '編集', edit_lenz_revieww_path(@lenz, revieww), method: :get %></p>
                         <% end %>
                     </div>

@@ -12,7 +12,7 @@
                 <p class="post_p">iso：<%= @camera.iso %></p>
                 <p class="post_p">重量：<%= @camera.weight %>g</p>
                 <% if current_user&.admin? %>
-                    <%= link_to '削除', camera_path(@camera.id), method: :delete %>
+                    <%= link_to '削除', camera_path(@camera.id), data: { confirm: "削除しますか?" }, method: :delete %>
                     <%= link_to '編集', edit_camera_path(@camera.id), method: :get %>
                 <% end %>
             </div>   
@@ -198,7 +198,7 @@
                     <p class="post_p">レンズ：　<a href="/posts/search?keyword=<%= post.lens_maker %>&commit=検索"><%= post.lens_maker %></a> / <a href="/posts/search?keyword=<%= post.lens %>&commit=検索"><%= post.lens %></a></p>
                     <p class="post_p">カテゴリー：　<%= post.image_cat %></p>
                     <% if user_signed_in? && current_user.id == post.user_id || current_user&.admin? %>
-                        <%= link_to '削除', post_path(post.id), method: :delete %>
+                        <%= link_to '削除', post_path(post.id), data: { confirm: "削除しますか?" }, method: :delete %>
                         <%= link_to '編集', edit_post_path(post.id), method: :get %>
                     <% end %>
                 </div>
