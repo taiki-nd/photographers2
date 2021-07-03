@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def notice
   end
+  
+  def report
+  end
 end

@@ -102,7 +102,7 @@
                     </div>
                 </div>
                 <%= form.text_area :content, placeholder: "コメントする", rows: "2" %>
-                <%= form.submit "REVIEW" %>
+                <%= form.submit "REVIEW", data: { confirm: "他ユーザーが不快になるレビューではないことをご確認ください" } %>
             <% end %>
         <% else %>
         <strong><p>レビューの投稿には新規登録/ログインが必要です</p></strong>

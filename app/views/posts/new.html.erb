@@ -10,7 +10,7 @@
             <%= form.text_field :lens, placeholder: "Lens" %>
             <%= form.text_field :place, placeholder: "place" %>
             <%= form.text_field :text, placeholder: "Comment", rows: "5" %>
-            <%= form.submit "SEND" %>
+            <%= form.submit "SEND", data: { confirm: "他ユーザーが不快になる投稿ではないことをご確認ください" } %>
         <% end %>
     </div>
 </div>

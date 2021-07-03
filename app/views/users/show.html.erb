@@ -5,10 +5,10 @@
     <div class="container">
         <h3><%= @nickname %>さんの情報</h3>
         <div class="follow_btn">
-            <p>フォロー : <a href="<%= @user.id %>/followings"><%= @user.followings.count %></a>
+            <p>フォロー : <a href="<%= @user.id %>/followings"><%= @user.followings.count %></a></p>
         </div>
         <div class="follow_btn">
-            <p>フォロワー : <%= @user.followers.count %></p>
+            <p>フォロワー : <a href="<%= @user.id %>/followers"><%= @user.followers.count %></a></p>
         </div>
     </div>
     
