@@ -27,7 +27,6 @@
           <li class="navi"><a href="/">top</a></li>
           <li class="navi"><a href="/cameras">カメラ一覧</a></li>
           <li class="navi"><a href="/lenzs">レンズ一覧</a></li>
-          <%# <li class="navi"><a href="#section5">運営からのお知らせ</a></li> %>
         </ul>
         <ul class="navi_log">
           <% if user_signed_in? %>
@@ -38,7 +37,9 @@
             <li class="navi"><%= link_to 'ログイン', new_user_session_path %></li>
             <li class="navi"><%= link_to '新規登録', new_user_registration_path %></li>
           <% end %>
-          
+        </ul>
+        <ul class="navi_pages">
+          <li class="navi"><a href="/pages/contact">お問い合わせ</a></li>
         </ul>
       </nav>
   
