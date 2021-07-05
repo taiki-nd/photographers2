@@ -19,6 +19,9 @@
                         <div class="notice_date">
                             <%= page.Date %>
                         </div>
+                        <% if current_user&.admin? %>
+                            <%= link_to '削除', page_path(page.id), method: :delete %>
+                        <% end %>
                     </div>
                 <% end %>
             <% end %>
