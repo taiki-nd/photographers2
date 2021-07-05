@@ -33,7 +33,7 @@ class PagesController < ApplicationController
     end
     
     def move_to_notice
-      unless current_user&admin?
+      unless current_user&.admin?
         redirect_to "pages/notice"
       end
     end
