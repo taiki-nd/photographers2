@@ -3,10 +3,10 @@
         <h3>投稿する</h3>
         <%= form_with(model: @post, local: true) do |form| %>
             <%= form.text_field :image, placeholder: "image URL" %>
-            <%= form.text_field :image_cat, placeholder: "image category" %>
-            <%= form.text_field :camera_maker, placeholder: "Camera maker" %>
+            <%= form.select :image_cat, [["風景","風景"],["夜景","夜景"],["星","星"],["ポートレート","ポートレート"],["その他","その他"]], include_blank: "カテゴリーを選択して下さい" %>
+            <%= form.select :camera_maker, [["canon","canon"],["nikon","nikon"],["sony","sony"],["panasonic","panasonic"],["olympus","olympus"],["富士フイルム","富士フイルム"],["pentax","pebtax"],["sigma","sigma"],["hasselblad","hasselblad"],["leica","leica"],["その他","その他"]], include_blank: "カメラメーカーを選択して下さい" %>
             <%= form.text_field :camera, placeholder: "Camera" %>
-            <%= form.text_field :lens_maker, placeholder: "Lens_maker" %>
+            <%= form.select :lens_maker, [["canon","canon"],["nikon","nikon"],["sony","sony"],["panasonic","panasonic"],["olympus","olympus"],["富士フイルム","富士フイルム"],["pentax","pebtax"],["sigma","sigma"],["hasselblad","hasselblad"],["leica","leica"],["その他","その他"]], include_blank: "レンズメーカーを選択して下さい" %>
             <%= form.text_field :lens, placeholder: "Lens" %>
             <%= form.text_field :place, placeholder: "place" %>
             <%= form.text_field :text, placeholder: "Comment", rows: "5" %>
