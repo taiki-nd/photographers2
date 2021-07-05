@@ -31,6 +31,6 @@ Rails.application.routes.draw do
     resources :reviewws, only: [:create, :destroy, :edit, :update]
   end
   
-  resources :pages, only: [:create, :destroy, :edit, :update]
+  resources :pages, only: [:create, :destroy]
   
 end
