@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_03_133852) do
+ActiveRecord::Schema.define(version: 2021_07_05_083645) do
 
   create_table "cameras", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "camera_maker"
@@ -111,6 +111,8 @@ ActiveRecord::Schema.define(version: 2021_07_03_133852) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "nickname"
     t.boolean "admin", default: false
+    t.string "main_camera"
+    t.string "main_camera_maker"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
