@@ -2,7 +2,7 @@ class PostsController < ApplicationController
     
     before_action :set_post, only: [:edit, :show]
     before_action :move_to_index, except: [:index, :show, :search]
-    
+    before_action :set_slect, only: [:new, :edit]
     
     def index
         #@posts = Post.all
@@ -54,6 +54,11 @@ class PostsController < ApplicationController
         unless user_signed_in?
             redirect_to action: :index
         end 
+    end
+    
+    def set_slect
+        @parent_slect = Slectbox.roots
+        @default_child_slect = @parent_slect.first.children
     end
     
 end

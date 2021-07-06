@@ -4,7 +4,12 @@
         <%= form_with(model: @post, local: true) do |form| %>
             <%= form.text_field :image, placeholder: "image URL" %>
             <%= form.select :image_cat, [["風景","風景"],["夜景","夜景"],["星","星"],["ポートレート","ポートレート"],["その他","その他"]], include_blank: "カテゴリーを選択して下さい" %>
-            <%= form.select :camera_maker, [["canon","canon"],["nikon","nikon"],["sony","sony"],["panasonic","panasonic"],["olympus","olympus"],["富士フイルム","富士フイルム"],["pentax","pentax"],["sigma","sigma"],["hasselblad","hasselblad"],["leica","leica"],["その他","その他"]], include_blank: "カメラメーカーを選択して下さい" %>
+            <!-- form.select :camera_maker, [["canon","canon"],["nikon","nikon"],["sony","sony"],["panasonic","panasonic"],["olympus","olympus"],["富士フイルム","富士フイルム"],["pentax","pentax"],["sigma","sigma"],["hasselblad","hasselblad"],["leica","leica"],["その他","その他"]], include_blank: "カメラメーカーを選択して下さい" %>-->
+            <%= form.select :camera_maker, options_for_select(@default_child_slect.map{|c| [c[:name_cam]]}), include_blank: "カメラメーカーを選択して下さい"%>
+                  
+          
+            
+            
             <%= form.text_field :camera, placeholder: "Camera" %>
             <%= form.select :lens_maker, [["canon","canon"],["nikon","nikon"],["sony","sony"],["panasonic","panasonic"],["olympus","olympus"],["富士フイルム","富士フイルム"],["pentax","pebtax"],["sigma","sigma"],["hasselblad","hasselblad"],["leica","leica"],["その他","その他"]], include_blank: "レンズメーカーを選択して下さい" %>
             <%= form.text_field :lens, placeholder: "Lens" %>
