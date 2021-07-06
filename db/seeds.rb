@@ -23,3 +23,28 @@ canon, nikon, sony, panasonic, olympus, 富士フイルム, pentax, sigma, hasse
  'EOS 9000D', 'EOS Kiss X90'].each do |name|
     canon.children.create(name: name)
 end
+
+['D6', 'D5', 'D4S', 'D4', 'D850', 'D810A', 'D810', 'D780', 'D750', 'D500', 'D7500', 'D7200', 'D5600', 'D5500', 
+ 'Z 7II', 'Z7', 'Z 6II', 'Z6', 'Z5', 'Zfc', 'Z50',].each do |name|
+    nikon.children.create(name: name)
+end
+
+[].each do |name|
+    -------.children.create(name: name)
+end
+
+[].each do |name|
+    -------.children.create(name: name)
+end
+
+[].each do |name|
+    -------.children.create(name: name)
+end
+
+[].each do |name|
+    -------.children.create(name: name)
+end
+
+[].each do |name|
+    -------.children.create(name: name)
+end
