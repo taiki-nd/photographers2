@@ -59,8 +59,8 @@ end
     sigma.children.create(name: name)
 end
 
-['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''].each do |name|
-    -------.children.create(name: name)
+['X1D II 50c', 'X1D 50c', 'H6D', 'H6D MULTI-SHOT', 'H6X'].each do |name|
+    hasselblad.children.create(name: name)
 end
 
 ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''].each do |name|
