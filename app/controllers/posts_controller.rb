@@ -59,6 +59,7 @@ class PostsController < ApplicationController
     def set_slect
         @parent_slect = Slectbox.roots
         @default_child_slect = @parent_slect.first.children
+        @default_grandchild_slect = @parent_slect.first.indirects
     end
     
 end
