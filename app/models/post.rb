@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
     belongs_to :user
     has_many :comments
+    has_ancestry
     
     def self.search(search)
         if search != ""
