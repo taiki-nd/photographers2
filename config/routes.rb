@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   root to: 'posts#index'
   
   resources :posts do
-    get :dynamic_select_category, to: 'posts#dynamic_select_category'
+    collection do
+      get :dynamic_select_category, to: 'posts#dynamic_select_category'
+    end
     resources :comments, only: [:create, :destroy, :edit, :update]
     collection do
       get 'search'
