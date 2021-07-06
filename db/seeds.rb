@@ -63,6 +63,6 @@ end
     hasselblad.children.create(name: name)
 end
 
-['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''].each do |name|
-    -------.children.create(name: name)
+['S', 'SL', 'M', 'CL', 'TL2'].each do |name|
+    leica.children.create(name: name)
 end
