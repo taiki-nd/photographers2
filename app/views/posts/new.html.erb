@@ -5,9 +5,22 @@
             <%= form.text_field :image, placeholder: "image URL" %>
             <%= form.select :image_cat, [["風景","風景"],["夜景","夜景"],["星","星"],["ポートレート","ポートレート"],["その他","その他"]], include_blank: "カテゴリーを選択して下さい" %>
             <!-- form.select :camera_maker, [["canon","canon"],["nikon","nikon"],["sony","sony"],["panasonic","panasonic"],["olympus","olympus"],["富士フイルム","富士フイルム"],["pentax","pentax"],["sigma","sigma"],["hasselblad","hasselblad"],["leica","leica"],["その他","その他"]], include_blank: "カメラメーカーを選択して下さい" %>-->
-            <%= form.select :camera_maker, options_for_select(@default_child_slect.map{|c| [c[:name_cam]]}), include_blank: "カメラメーカーを選択して下さい" %>
+            <%= form.select :camera_maker, options_for_select(@default_child_slect.map{|c| [c[:name_cam]]}), {include_blank: "カメラメーカーを選択して下さい"}, {id: "child_category_cam"} %>
+            
+            <script type="text/javascript">
+                $(function() {
+                    $('#child_category_cam').change(function() {
+                        $.ajax({
+                            url: "<%= dynamic_select_category_path %>",
+                            type: 'GET',
+                            data: { category_id: $('#child_category_cam').has('option:selected').val() }
+                        });
+                    });
+                });
+            </script>
+
             <!-- form.text_field :camera, placeholder: "Camera" %>-->
-            <%= form.select :camera, options_for_select(@default_grandchild_slect.map{|c| [c[:name_cam]]}), include_blank: "カメラを選択して下さい"%>      
+            <%= form.select :camera, options_for_select(@default_grandchild_slect.map{|c| [c[:name_cam]]}), {include_blank: "カメラを選択して下さい"}, {id: "cam_name"} %>      
           
             
             

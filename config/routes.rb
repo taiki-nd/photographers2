@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   get 'pages/contact'
   get 'pages/notice'
   get 'pages/report'
+  
+  
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'posts#index'
   
   resources :posts do
+    get :dynamic_select_category, to: 'posts#dynamic_select_category'
     resources :comments, only: [:create, :destroy, :edit, :update]
     collection do
       get 'search'

@@ -41,6 +41,10 @@ class PostsController < ApplicationController
         @posts = Post.search(params[:keyword]).includes(:user).page(params[:page]).per(40).order('created_at DESC')
     end
     
+    def dynamic_select_category
+        @category = Slectbox.find(params[:category_id])
+    end
+    
     private
     def post_params
         params.require(:post).permit(:camera, :lens, :place, :image, :text, :camera_maker, :lens_maker).merge(user_id: current_user.id) 
