@@ -1,7 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+camera = Post.create(name: 'camera_maker')
+canon, nikon, sony, panasonic, olympus, 富士フイルム, pentax, sigma, hasselblad, leica, その他 = camera.children.create(
+    [
+        {name: 'canon'},
+        {name: 'nikon'},
+        {name: 'sony'},
+        {name: 'panasonic'},
+        {name: 'olympus'},
+        {name: '富士フイルム'},
+    ]    
+)
