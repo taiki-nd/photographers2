@@ -25,7 +25,7 @@ canon, nikon, sony, panasonic, olympus, 富士フイルム, pentax, sigma, hasse
 end
 
 ['D6', 'D5', 'D4S', 'D4', 'D850', 'D810A', 'D810', 'D780', 'D750', 'D500', 'D7500', 'D7200', 'D5600', 'D5500', 
- 'Z 7II', 'Z7', 'Z 6II', 'Z6', 'Z5', 'Zfc', 'Z50',].each do |name|
+ 'Z 7II', 'Z7', 'Z 6II', 'Z6', 'Z5', 'Zfc', 'Z50'].each do |name|
     nikon.children.create(name: name)
 end
 
@@ -34,8 +34,9 @@ end
     sony.children.create(name: name)
 end
 
-[].each do |name|
-    -------.children.create(name: name)
+['DC-S1R', 'DC-S1', 'DC-S1H', 'DC-S5', 'DC-GH5M2', 'DC-GH5', 'DC-GH5S', 'DC-GH4', 
+ 'DC-G9', 'DC-G99', 'DC-G100', 'DC-GX7MK3', 'DC-GF10', 'DC-GF9', 'DC-GF8'].each do |name|
+    panasonic.children.create(name: name)
 end
 
 [].each do |name|
