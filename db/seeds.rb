@@ -29,8 +29,9 @@ end
     nikon.children.create(name: name)
 end
 
-[].each do |name|
-    -------.children.create(name: name)
+['α1', 'α9 II', 'α9', 'α7R IV', 'α7R III', 'α7R II', 'α7S III', 'α7S II', 'α7III', 'α7II', 'α7c', 
+ 'α6600', 'α6400', 'α6100', 'α99II'].each do |name|
+    sony.children.create(name: name)
 end
 
 [].each do |name|
