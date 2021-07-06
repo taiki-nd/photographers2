@@ -51,6 +51,18 @@ end
     fuji.children.create(name: name)
 end
 
-[].each do |name|
+['645z', 'K-1 II', 'K-1', 'K-3 III', 'K-3 II', 'K-5 IIs', 'K-5', 'KP', 'K-S1', 'K-S2'].each do |name|
+    pentax.children.create(name: name)
+end
+
+['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''].each do |name|
+    -------.children.create(name: name)
+end
+
+['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''].each do |name|
+    -------.children.create(name: name)
+end
+
+['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''].each do |name|
     -------.children.create(name: name)
 end
