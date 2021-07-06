@@ -44,8 +44,11 @@ end
     olympus.children.create(name: name)
 end
 
-[].each do |name|
-    .children.create(name: name)
+['FUJIFILM GFX100', 'FUJIFILM GFX100S', 'FUJIFILM GFX 50S', 'FUJIFILM GFX 50R', 
+ 'FUJIFILM X-H1', 'FUJIFILM X-Pro3', 'FUJIFILM X-pro2', 'FUJIFILM X-T4', 'FUJIFILM X-T3', 'FUJIFILM X-S10', 
+ 'FUJIFILM X-T30', 'FUJIFILM X-T20', 'FUJIFILM X-T200', 'FUJIFILM X-T100', 'FUJIFILM X-E4', 'FUJIFILM X-E3', 
+ 'FUJIFILM X-A7', 'FUJIFILM X-A5'].each do |name|
+    fuji.children.create(name: name)
 end
 
 [].each do |name|
