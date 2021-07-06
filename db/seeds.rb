@@ -7,5 +7,10 @@ canon, nikon, sony, panasonic, olympus, 富士フイルム, pentax, sigma, hasse
         {name: 'panasonic'},
         {name: 'olympus'},
         {name: '富士フイルム'},
+        {name: 'pentax'},
+        {name: 'sigma'},
+        {name: 'hasselblad'},
+        {name: 'leica'},
+        {name: 'その他'},
     ]    
 )
