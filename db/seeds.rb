@@ -39,8 +39,9 @@ end
     panasonic.children.create(name: name)
 end
 
-[].each do |name|
-    -------.children.create(name: name)
+['E-M1X', 'E-M1 Mark III', 'E-M1 Mark II', 'E-M5 Mark III', 'E-M5 Mark II', 'E-M10 Mark IV', 'E-M10 Mark III', 'E-M10 Mark II', 
+ 'PEN F', 'E-P7', 'E-P5', 'E-PL10', 'E-PL9', 'E-PL8', 'E-PL7'].each do |name|
+    olympus.children.create(name: name)
 end
 
 [].each do |name|
