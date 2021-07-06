@@ -55,8 +55,8 @@ end
     pentax.children.create(name: name)
 end
 
-['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''].each do |name|
-    -------.children.create(name: name)
+['fp', 'fp L', 'sd', 'sd H', 'dp0', 'dp1', 'dp2', 'dp3'].each do |name|
+    sigma.children.create(name: name)
 end
 
 ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''].each do |name|
