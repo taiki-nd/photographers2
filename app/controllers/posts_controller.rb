@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     end
     
     def dynamic_select_category
-        @category = Slectbox.find(params[:category_id])
+        @slect = Slectbox.find(params[:category_id])
     end
     
     private
