@@ -11,7 +11,7 @@
                 $(function() {
                     $('#child_category_cam').change(function() {
                         $.ajax({
-                            url: "<%= dynamic_select_category_posts_path %>",
+                            url: "<%= dynamic_select_category_path %>",
                             type: 'GET',
                             data: { category_id: $('#child_category_cam').has('option:selected').val() }
                         });

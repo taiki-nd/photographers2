@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_090429) do
+ActiveRecord::Schema.define(version: 2021_07_10_093738) do
 
   create_table "cameras", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "camera_maker"
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_090429) do
     t.integer "user_id"
     t.string "ancestry"
     t.string "name_cam"
+    t.string "Camera_ancestry"
+    t.string "Lens_ancestry"
     t.index ["ancestry"], name: "index_posts_on_ancestry"
   end
 
