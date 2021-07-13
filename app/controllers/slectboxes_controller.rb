@@ -1,0 +1,2 @@
+class SlectboxesController < ApplicationController
+end
