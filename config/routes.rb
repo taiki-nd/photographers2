@@ -4,21 +4,18 @@ Rails.application.routes.draw do
   get 'pages/notice'
   get 'pages/report'
   
-  get :dynamic_select_category, to: 'posts#dynamic_select_category'
-  
+  # resources :slectboxes, only: :index
   
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'posts#index'
   
   resources :posts do
-      
-    
     resources :comments, only: [:create, :destroy, :edit, :update]
     collection do
       get 'search'
+      get 'dynamic_select_category'
     end
-    
   end
   
   resources :users, only: [:show, :edit, :update] do

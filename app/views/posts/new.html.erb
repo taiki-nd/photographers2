@@ -14,10 +14,13 @@
                 $(function() {
                     $('#child_category_cam').change(function() {
                         
-                        var int = document.getElementById("child_category_cam").value
+                        
+                        var intParent = document.getElementById("parent_category_cam").value
+                        var intChild = document.getElementById("child_category_cam").value
+                        var int = intParent + '/' + intChild
                         
                         $.ajax({
-                            url: "<%= dynamic_select_category_path %>",
+                            url: 'dynamic_select_category',
                             type: 'GET',
                             data: {id: int}
                         });
