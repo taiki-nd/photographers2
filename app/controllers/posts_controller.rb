@@ -64,7 +64,7 @@ class PostsController < ApplicationController
         @parent_slect = Slectbox.roots
         @camera_child_slect = @parent_slect.first.children
         
-        @camera_grandchild_slect = @camera_child_slect.first.children
+        @camera_grandchild_slect = sony.children
         
             
     end
