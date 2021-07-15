@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   get 'pages/notice'
   get 'pages/report'
   
-  get :dynamic_select_category, to: 'products#dynamic_select_category'
-  
   # resources :slectboxes, only: :index
   
   devise_for :users
