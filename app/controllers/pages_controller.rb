@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   before_action :move_to_notice, except: :notice
   
   def company
+    @camera_maker = Slectbox.find_by(name_cam: 'sony')
   end
 
   def contact
@@ -37,5 +38,4 @@ class PagesController < ApplicationController
         redirect_to "pages/notice"
       end
     end
-    
 end

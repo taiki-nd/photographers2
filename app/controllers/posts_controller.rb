@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     end
     
     def ajax
-        @camera_maker = Slectbox.find_by(name_cam: 'camera_maker')
+        @camera_maker = Slectbox.find_by(name_cam: 'sony')
     end
     
     private
@@ -62,7 +62,6 @@ class PostsController < ApplicationController
     
     def set_slect
         @parent_slect = Slectbox.roots
-        @sony = Slectbox.find_by(name_cam: 'sony')
         @camera_child_slect = @parent_slect.first.children
         @camera_grandchild_slect = @parent_slect.first.indirects
     end
