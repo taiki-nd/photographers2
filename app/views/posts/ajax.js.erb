@@ -1,3 +1,3 @@
 
 
-$('#grandchild_category_cam').html('<% @camera_maker.name_cam %>');
+$('#grandchild_category_cam').html('<%  @camera_maker.children.each do |camera_name| %><%= camera_name.name_cam %><% end %>');
