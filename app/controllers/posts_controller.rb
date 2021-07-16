@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
     
     before_action :set_post, only: [:edit, :show]
-    before_action :move_to_index, except: [:index, :show, :search, :get_category_grandchildren]
+    before_action :move_to_index, except: [:index, :show, :search, :dynamic_select_category]
     before_action :set_slect, only: [:new, :edit]
     
     def index
@@ -41,8 +41,8 @@ class PostsController < ApplicationController
         @posts = Post.search(params[:keyword]).includes(:user).page(params[:page]).per(40).order('created_at DESC')
     end
     
-    def get_category_grandchildren
-        @category_grandchildren = Slectbox.find("#{params[:child_id]}").children
+    def ajax
+        @camera_maker = Slectbox.find_by(name_cam: 'camera_maker')
     end
     
     private
@@ -62,6 +62,7 @@ class PostsController < ApplicationController
     
     def set_slect
         @parent_slect = Slectbox.roots
+        @sony = Slectbox.find_by(name_cam: 'sony')
         @camera_child_slect = @parent_slect.first.children
         @camera_grandchild_slect = @parent_slect.first.indirects
     end

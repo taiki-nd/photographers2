@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'pages/contact'
   get 'pages/notice'
   get 'pages/report'
-  
+  get :ajax, to: 'posts#ajax'
   # resources :slectboxes, only: :index
   
   devise_for :users
