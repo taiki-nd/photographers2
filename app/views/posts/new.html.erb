@@ -8,13 +8,12 @@
             <script>
                 $(function() {
                   $('#child_category_cam').change(function() {
+                     var cameramaker = $('#child_category_cam').has('option:selected').val()
                     $.ajax({
                       url: "<%= ajax_path %>",
                       type: 'GET',
-                      data: { camera_maker: $('#child_category_cam').has('option:selected').val() }
+                      data: { camera_maker: cameramaker }
                     });
-                    const maker = $('#child_category_cam').has('option:selected').val()
-                    console.log(maker)
                   });
                 });
             </script>
