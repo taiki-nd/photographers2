@@ -16,8 +16,10 @@
                         <p class="post_p">f値：<%= lenz.f_number %></p>
                         <p class="post_p">焦点距離：<%= lenz.focal_length %>mm</p>
                         <p class="post_p">重量：<%= lenz.weight %>g</p>
-                        <%= link_to '削除', lenz_path(lenz.id), data: { confirm: "削除しますか?" }, method: :delete %>
-                        <%= link_to '編集', edit_lenz_path(lenz.id), method: :get %>
+                        <% if current_user&.admin? %>
+                            <%= link_to '削除', lenz_path(lenz.id), data: { confirm: "削除しますか?" }, method: :delete %>
+                            <%= link_to '編集', edit_lenz_path(lenz.id), method: :get %>
+                        <% end %>
                         <%= link_to 'レンズレビュー', lenz_path(lenz.id), method: :get %>
                     </div>   
                 </div>
