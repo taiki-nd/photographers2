@@ -13,7 +13,7 @@
             <p class="post_p">撮影場所：　<a href="/posts/search?keyword=<%= @post.place %>&commit=検索"><%= @post.place %></a></p>
             <p class="post_p">コメント：　</br><%= @post.text %></p>
             <% if user_signed_in? && current_user.id == @post.user_id || current_user&.admin? %>
-                <%= link_to '削除', post_path(@post.id), method: :delete %>
+                <%= link_to '削除', post_path(@post.id), data: { confirm: "削除しますか?" }, method: :delete %>
                 <%= link_to '編集', edit_post_path(@post.id), method: :get %>
             <% end %>
         </div>
@@ -36,7 +36,7 @@
                     <P><strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>   <%= comment.text %></P>
                     <div>
                         <% if user_signed_in? && current_user.id == comment.user_id || current_user&.admin? %>
-                            <%= link_to '削除', post_comment_path(@post, comment), method: :delete %>
+                            <%= link_to '削除', post_comment_path(@post, comment), data: { confirm: "削除しますか?" }, method: :delete %>
                             <%= link_to '編集', edit_post_comment_path(@post, comment), method: :get %>
                         <% end %>
                     </div>

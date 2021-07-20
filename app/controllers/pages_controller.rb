@@ -1,7 +1,5 @@
 class PagesController < ApplicationController
   
-  before_action :move_to_notice, except: :notice
-  
   def company
     @camera_maker = Slectbox.find_by(name_cam: 'sony')
   end
@@ -32,10 +30,5 @@ class PagesController < ApplicationController
     def page_params
         params.require(:page).permit(:twitter, :Date).merge(user_id: current_user.id)
     end
-    
-    def move_to_notice
-      unless current_user&.admin?
-        redirect_to "pages/notice"
-      end
-    end
+   
 end
