@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     end
     
     def ajax
-        @camera_maker = Slectbox.find_by(name_cam: 'camera_maker')
+        @camera_maker = Slectbox.find_by(name_cam: 'camera_name')
     end
     
     private
