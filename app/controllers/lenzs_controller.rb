@@ -37,7 +37,7 @@ class LenzsController < ApplicationController
     
     private
     def lenz_params
-        params.require(:lenz).permit(:image, :lens_maker, :lens_name, :sensor_size, :f_number, :focal_length, :weight).merge(user_id: current_user.id)
+        params.require(:lenz).permit(:image, :lens_maker, :lens_name, :sensor_size, :f_number, :focal_length, :weight)
     end
     
     def move_to_index

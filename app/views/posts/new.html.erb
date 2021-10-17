@@ -5,19 +5,7 @@
             <%= form.text_field :image, placeholder: "image URL" %>
             <%= form.select :image_cat, [["風景","風景"],["夜景","夜景"],["星","星"],["ポートレート","ポートレート"],["その他","その他"]], include_blank: "カテゴリーを選択して下さい" %>
             <%= form.select :camera_maker, options_for_select(@camera_child_slect.map{|c| [c[:name_cam]]}), {include_blank: "カメラメーカーを選択して下さい"}, {id: "child_category_cam"} %>
-            <script>
-                $(function() {
-                  $('#child_category_cam').change(function() {
-                     var cameramaker = $('#child_category_cam').has('option:selected').val()
-                    $.ajax({
-                      url: "<%= ajax_path %>",
-                      type: 'GET',
-                      data: { camera_maker: cameramaker }
-                    });
-                  });
-                });
-            </script>
-            <div id ="grandchild_category_cam"><%= form.select :camera, options_for_select(@camera_grandchild_slect.map{|c| [c[:name_cam]]}), {include_blank: "カメラを選択して下さい"} %></div>
+            <%= form.select :camera, options_for_select(@camera_grandchild_slect.map{|c| [c[:name_cam]]}), {include_blank: "カメラを選択して下さい"} %>
             <%= form.select :lens_maker, [["canon","canon"],["nikon","nikon"],["sony","sony"],["panasonic","panasonic"],["olympus","olympus"],["富士フイルム","富士フイルム"],["pentax","pebtax"],["sigma","sigma"],["hasselblad","hasselblad"],["leica","leica"],["その他","その他"]], include_blank: "レンズメーカーを選択して下さい" %>
             <%= form.text_field :lens, placeholder: "Lens" %>
             <%= form.text_field :place, placeholder: "place" %>

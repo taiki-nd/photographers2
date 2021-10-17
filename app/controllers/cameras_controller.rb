@@ -37,11 +37,11 @@ class CamerasController < ApplicationController
     
     private
     def camera_paramas
-        params.require(:camera).permit(:image, :camera_maker, :camera_name, :sensor_size, :pixels, :iso, :weight, :shooting_speed).merge(user_id: current_user.id)
+        params.require(:camera).permit(:image, :camera_maker, :camera_name, :sensor_size, :pixels, :iso, :weight, :shooting_speed)
     end
     
     def move_to_index
-        unless current_user&.admin
+        unless current_user&.admin?
             redirect_to action: :index
         end
     end
